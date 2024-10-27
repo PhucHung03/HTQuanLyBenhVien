@@ -1,0 +1,154 @@
+@charset "UTF-8";
+html,
+body {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: red;
+}
+/* s */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: #111111;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  color: #666666;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0 0 15px 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+    background: #ffffff;
+    box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
+  }
+
+
+.header__right {
+    padding: 30px 0 27px;
+}
+.header__right ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+.header__menu {
+    background-color: #2799d6;
+}
+.header__menu {
+    text-align: center;
+    padding: 10px 0 10px;
+  }
+
+  .header__menu ul li h5  {
+    color: #ffffff;
+  }
+.header__menu ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 40px;
+    position: relative;
+}
+.header__menu ul li a {
+    text-decoration: none;
+    color: #1a73e8; /* Màu chữ mặc định */
+    padding: 5px 5px;
+    display: block;
+    transition: all 0.3s ease; /* Hiệu ứng mượt */
+    border-radius: 5px;
+  }
+.header__menu ul li a:hover {
+    background-color: rgba(232, 232, 232, 0.404); /* Màu nền khi lăn chuột vào */
+  }
+
+  .header__menu ul li:hover .dropdown {
+    top: 27px;
+    opacity: 1;
+    visibility: visible;
+  }
+  .header__menu ul li .dropdown {
+    position: absolute;
+    left: 0;
+    top: 56px;
+    width: 250px;
+    background: #61bfeb;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all, 0.3s;
+    -moz-transition: all, 0.3s;
+    -ms-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+  }
+  .header__menu ul li .dropdown li {
+    display: block;
+  }
+  .header__menu ul li .dropdown li a {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+  .header__menu ul li .dropdown li a:after {
+    display: none;
+  }
