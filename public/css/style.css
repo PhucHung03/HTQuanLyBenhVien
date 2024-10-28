@@ -152,3 +152,88 @@ ol {
   .header__menu ul li .dropdown li a:after {
     display: none;
   }
+
+#banner__carousel{
+  padding: 30px;
+  height: auto;
+}
+
+
+  .about__us{
+
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+}
+.about__us h3{
+  color: #2799d6;
+}
+
+
+.descrice p{
+  margin-left: 50px;
+  text-align: center;
+  text-align: justify;
+  line-height: 1.6;
+  font-size: large;
+  font-family: "Montserrat", sans-serif;
+  padding: 50px;
+}
+.descrice img{
+  margin-left: 50px;
+  width: 500px;
+  padding: 30px;
+}
+
+.specialty a{
+  text-align: center;
+  text-decoration: none;
+}
+
+.specialty h5{
+  margin-top: 10px;
+}
+
+.more button{
+  display: flex; 
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+.footer {
+  margin-top: 20px;
+  padding-top: 55px;
+  background-color: #cccbcb23;
+}
+
+.footer a{
+ text-decoration: none;
+ color: #111111;
+}
+.footer a:hover{
+  text-decoration: none;
+  color:#61bfeb; 
+ }
+.footer ul{
+  padding-top: 10px;
+  list-style: none;
+ }
+
+ .footer__system{
+  margin-bottom: 50px;
+padding-left: 180px;
+ }
+ .footer__system ul li{
+  font-family: "Montserrat", sans-serif;
+}
+ .footer__copyright__text {
+  border-top: 1px solid #e1e1e1;
+  padding: 10px 0 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+ 
