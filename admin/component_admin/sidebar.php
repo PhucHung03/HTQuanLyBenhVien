@@ -16,8 +16,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Bác sĩ</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="taophieukham.php" class="dropdown-item">Tạo phiếu khám</a>
-                            <a href="#1" class="dropdown-item">Tất cả đơn</a>
+                            <a href="index.php?quanli=tao-phieu-kham" class="dropdown-item">Tạo phiếu khám</a>
+                            <a href="index.php?quanli=xem-benh-nhan" class="dropdown-item">Xem bệnh nhân</a>
                             <a href="#1" class="dropdown-item">Đã hủy</a>
                         </div>
                     </div>

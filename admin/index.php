@@ -2,12 +2,23 @@
 require('component_admin/header.php');
 require('component_admin/sidebar.php');
 require('component_admin/topbar.php');
-?>
 
-<body>
-    cc
-</body>
+if(!isset($_GET['quanli'])) {
+    require_once "home.php";
+}else {
+    switch ($_GET['quanli']) {
+        case 'tao-phieu-kham':
+            require_once "bacsi/taophieukham.php";         
+            break;
+        case 'xem-benh-nhan':
+            require_once "bacsi/xembenhnhan.php";         
+            break;
+        }
+}
 
-<?php
-require('component_admin/footer.php');
+require_once "component_admin/footer.php";
+
+
+    
+ob_end_flush();
 ?>
