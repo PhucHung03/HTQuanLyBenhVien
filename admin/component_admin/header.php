@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>ADMIN - BỆNH VIỆN ST</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/style_admin.css">
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/855290eb72.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
