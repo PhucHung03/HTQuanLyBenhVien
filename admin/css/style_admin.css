@@ -323,13 +323,15 @@
 }
 
 /* chi tiết xem lịch hẹn */
+.detailXemLichHenKham h3{
+    color: #009CFF; 
+}
 .detailXemLichHenKham .detailThongTin{
-    margin-left: 90px;
+    margin-left: 100px;
 }
 
-.detailXemLichHenKham h4{
-    margin-left: 60px;
+.detailXemLichHenKham .detailKhoaKham{
+    margin-right: 100px;
 }
-
 
 
