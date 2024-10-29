@@ -22,7 +22,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_admin.css">
+    <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 

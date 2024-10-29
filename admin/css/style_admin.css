@@ -1,5 +1,5 @@
  /* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); */
-:root {
+ :root {
     /* --primary: #009CFF; */
     --primary:  #007dcc;
    
@@ -248,183 +248,88 @@
 }
 
 
-/*** Testimonial ***/
-.progress .progress-bar {
-    width: 0px;
-    transition: 2s;
+
+/* detail pay */
+.detailThanhToan h3{
+    text-align: center; 
+    color: #009CFF; 
+    padding: 10px;
 }
-
-
-/*** Testimonial ***/
-.testimonial-carousel .owl-dots {
-    margin-top: 24px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+.detailThanhToan .table-container {
+    overflow-x: auto;
+    margin-top: 20px;
 }
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 15px;
-    height: 15px;
-    border: 5px solid var(--primary);
-    border-radius: 15px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    background: var(--dark);
-    border-color: var(--primary);
-}
-
-
-/* Order detail css */
-.card {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0.10rem
-}
-
-.card-header:first-child {
-    border-radius: calc(0.37rem - 1px) calc(0.37rem - 1px) 0 0
-}
-
-.card-header {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
-}
-
-.track {
-    position: relative;
-    background-color: #ddd;
-    height: 7px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 60px;
-    margin-top: 50px
-}
-
-.track .step {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    width: 25%;
-    margin-top: -18px;
-    text-align: center;
-    position: relative
-}
-
-.track .step.active:before {
-    background: #009CFF;
-}
-
-.track .step::before {
-    height: 7px;
-    position: absolute;
-    content: "";
+.detailThanhToan table {
     width: 100%;
-    left: 0;
-    top: 18px
+    border-collapse: collapse;
 }
-
-.track .step.active .icon {
-    background: #009CFF;
+.detailThanhToan table, th, td {
+    border: 1px solid #ddd;
+}
+.detailThanhToan th, td {
+    padding: 10px;
+    text-align: center;
+}
+.detailThanhToan th {
+    background-color: #4A63E7;
     color: #fff;
 }
 
-.track .icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    position: relative;
-    border-radius: 100%;
-    background: #ddd;
+.sumCost h5{
+    float: right;
+    padding: 20px;
+    margin-right: 45px;
 }
 
-.track .step.active .text {
-    font-weight: 400;
-    color: #000;
+.detailThanhToan .d-flex.justify-content-end {
+    margin-top: 90px; /* Tùy chỉnh khoảng cách trên nút */
+    margin-left: 150px;
 }
 
-.track .text {
-    display: block;
-    margin-top: 7px
+/* Xem lịch hẹn */
+.xemLichHen h3{
+    text-align: center; 
+    color: #009CFF; 
+    padding: 10px;
 }
 
-.itemside {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+.xemLichHen table {
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.xemLichHen table, th, td {
+    border: 1px solid #ddd;
+}
+.xemLichHen th, td {
+    padding: 10px;
+    text-align: center;
+}
+.xemLichHen th {
+    background-color: #4A63E7;
+    color: #fff;
+}
+.xemLichHen .action-btn {
+    background-color: #4A63E7;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+}
+.xemLichHen .action-btn:hover {
+    background-color: #3b51c8;
 }
 
-.itemside .aside {
-    position: relative;
-    -ms-flex-negative: 0;
-    flex-shrink: 0
+/* chi tiết xem lịch hẹn */
+.detailXemLichHenKham .detailThongTin{
+    margin-left: 90px;
 }
 
-.img-sm {
-    width: 80px;
-    height: 80px;
-    padding: 7px
+.detailXemLichHenKham h4{
+    margin-left: 60px;
 }
 
-ul.row,
-ul.row-sm {
-    list-style: none;
-    padding: 0
-}
 
-.itemside .info {
-    padding-left: 15px;
-    padding-right: 7px
-}
-
-.itemside .title {
-    display: block;
-    margin-bottom: 5px;
-    color: #212529
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 1rem
-}
-
-.td-responsive-2 {
-    min-width: 120px; 
-    max-width: 145px;
-}
-
-.td-responsive-3 {
-    min-width: 180px; 
-    max-width: 218px;
-}
-
-.td-date {
-    min-width: 145px;
-}
-
-.td-name {
-    min-width: 150px;
-}
 

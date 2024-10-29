@@ -17,7 +17,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Bác sĩ</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="index.php?quanli=tao-phieu-kham" class="dropdown-item">Tạo phiếu khám</a>
-                            <a href="index.php?quanli=xem-benh-nhan" class="dropdown-item">Xem bệnh nhân</a>
+                            <a href="index.php?quanli=xem-lich-hen-benh-nhan" class="dropdown-item">Xem lịch hẹn bệnh nhân</a>
                             <a href="#1" class="dropdown-item">Đã hủy</a>
                         </div>
                     </div>
@@ -25,8 +25,10 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>Bệnh nhân</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="taophieukham.php" class="dropdown-item">Thêm mới</a>
-                            <a href="#1" class="dropdown-item">Tất cả</a>
+                            <a href="index.php?quanli=dang-ki-tai-khoan" class="dropdown-item">Đăng Ký Tài Khoản</a>
+                            <a href="index.php?quanli=dang-nhap" class="dropdown-item">Đăng Nhập</a>
+                            <a href="index.php?quanli=dat-lich-kham" class="dropdown-item">Đặt lịch khám</a>                           
+                            <a href="index.php?quanli=xem-phieu-kham" class="dropdown-item">Xem Phiếu Khám</a>
                             
                         </div>
                     </div>
@@ -58,7 +60,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-video me-2"></i>Nhà thuốc</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#1" class="dropdown-item">Tất cả videoc</a>
+                            <a href="index.php?quanli=thanh-toan" class="dropdown-item">Thanh toán</a>
                             <a href="#1" class="dropdown-item">Thêm mới</a>
                             
                         </div>
