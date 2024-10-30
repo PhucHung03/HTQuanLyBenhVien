@@ -11,6 +11,15 @@
                             <a href="index.php?quanli=quan-ly-lich-lam-viec" class="dropdown-item">Quản lý lịch làm việc</a>
                         </div>
                     </div>
+
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-bed" style="color: #000000;"></i> Quản lý nhân viên</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="index.php?quanli=danh-sach-nhan-vien" class="dropdown-item">Danh sách nhân viên</a>
+
+                        </div>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-stethoscope" style="color: #000000;"></i> Bác sĩ</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -27,6 +36,7 @@
                             <a href="index.php?quanli=dang-nhap" class="dropdown-item">Đăng Nhập</a>
                             <a href="index.php?quanli=dat-lich-kham" class="dropdown-item">Đặt lịch khám</a>                           
                             <a href="index.php?quanli=xem-phieu-kham" class="dropdown-item">Xem Phiếu Khám</a>
+                            <a href="index.php?quanli=danh-sach-benh-nhan" class="dropdown-item">Danh Sách Bệnh Nhân</a>
                             
                         </div>
                     </div>
@@ -61,6 +71,8 @@
                             <a href="index.php?quanli=xem-thuoc-ton-kho" class="dropdown-item">Xem thuốc tồn kho</a>
                             <a href="index.php?quanli=bao-cao-thuoc-ton-kho" class="dropdown-item">Báo cáo thuốc tồn kho</a>
                             <a href="index.php?quanli=bao-cao-thuoc-het-han" class="dropdown-item">Báo cáo thuốc hết hạn</a>
+                            <a href="index.php?quanli=don-thuoc" class="dropdown-item">Đơn Thuốc</a>
+                            
                         </div>
                     </div>
                     <a href="index.php?quanli=xem-lich-lam-viec" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Lịch làm việc</a>

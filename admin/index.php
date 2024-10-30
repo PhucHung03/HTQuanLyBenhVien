@@ -73,6 +73,33 @@ if (!isset($_GET['quanli'])) {
         case 'detail-lich-lam-viec':
             require_once "lichLamViec/giaodienxemlich.php";
             break;
+            // danh sach benh nhan
+        case 'danh-sach-benh-nhan':
+            require_once "dsbn/dsbn.php";
+            break;
+
+            case 'don-thuoc':
+                require_once "dsbn/dt.php";
+                break;
+
+                case 'tra-cuu-don-thuoc':
+                    require_once "dsbn/tkdt.php";
+                    break;
+                    case 'chi-tiet-don-thuoc':
+                        require_once "dsbn/xctdt.php";
+                        break;
+                        case 'tra-cuu-benh-nhan':
+                            require_once "dsbn/tkbn.php";
+                            break;
+                            case 'chi-tiet-benh-nhan':
+                                require_once "dsbn/xctbn.php";
+                                break;
+                                case 'danh-sach-nhan-vien':
+                                    require_once "dsbn/qlnv.php";
+                                    break;
+                                    case 'chi-tiet-nhan-vien':
+                                        require_once "dsbn/xdsnv.php";
+                                        break;
     }
 }
 
