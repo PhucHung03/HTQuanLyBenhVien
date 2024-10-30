@@ -30,6 +30,7 @@
         padding: 20px;
         border-radius: 8px;
         margin-bottom: 20px;
+        
     }
 
     .info-box h2 {
@@ -40,8 +41,14 @@
 
     .info-box p {
         margin: 5px 0;
+        width: 60%;
+        
     }
-
+    .img-box{
+        width: 30%;
+        float:right;
+        margin-right:40px;
+    }
     .button-container {
         display: flex;
         justify-content: flex-end;
@@ -77,9 +84,11 @@
 <body>
 <div class="container">
     <div class="header">Loại thuốc</div>
-    
     <div class="info-box">
         <h2>Thông tin thuốc</h2>
+        <div class="img-box">
+            <?php echo '<img src="../levo.png" style="width:200px;height:200px">' ?>
+        </div>
         <p><strong>Mã thuốc:</strong> MT0001</p>
         <p><strong>Tên thuốc:</strong> Levothyroxine</p>
         <p><strong>Số lượng tồn kho:</strong> 300 hộp</p>
@@ -87,6 +96,7 @@
         <p><strong>Liều dùng:</strong> 1 lần/ ngày</p>
         <p><strong>Hạn sử dụng:</strong> 08/2025</p>
         <p><strong>Chi tiết:</strong> Levothyroxine là một loại hormone tổng hợp của tuyến giáp, được sử dụng để điều trị các bệnh liên quan đến suy giáp (tuyến giáp hoạt động kém).</p>
+        
     </div>
     
     <div class="button-container">
