@@ -8,9 +8,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Quản lí</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#1" class="dropdown-item">Đơn chờ</a>
-                            <a href="#1" class="dropdown-item">Tất cả đơn</a>
-                            <a href="#1" class="dropdown-item">Đã hủy</a>
+                            <a href="index.php?quanli=quan-ly-lich-lam-viec" class="dropdown-item">Quản lý lịch làm việc</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -18,7 +16,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="index.php?quanli=tao-phieu-kham" class="dropdown-item">Tạo phiếu khám</a>
                             <a href="index.php?quanli=xem-lich-hen-benh-nhan" class="dropdown-item">Xem lịch hẹn bệnh nhân</a>
-                            <a href="#1" class="dropdown-item">Đã hủy</a>
+                            <a href="index.php?quanli=xem-benh-nhan-phu-trach" class="dropdown-item">Xem bệnh nhân phụ trách</a>
                         </div>
                     </div>
                     
@@ -44,15 +42,15 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-credit-card" style="color: #000000;"></i> Thu ngân</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#1" class="dropdown-item">Tất cả khóa học</a>
-                            <a href="#1" class="dropdown-item">Thêm mới</a>
+                             <a href="index.php?quanli=thanh-toan" class="dropdown-item">Thanh toán</a>
+                            <a href="index.php?quanli=thong-ke-doanh-thu" class="dropdown-item">Thống kê doanh thu</a>
                             
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-person-dress" style="color: #000000;"></i> Tiếp tân</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#1" class="dropdown-item">Tất cả khóa học</a>
+                             <a href="index.php?quanli=quan-ly-lich-kham" class="dropdown-item">Quản lý lịch hẹn khám</a>
                             <a href="#1" class="dropdown-item">Thêm mới</a>
                             
                         </div>
@@ -60,12 +58,12 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-house-medical"></i> Nhà thuốc</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="index.php?quanli=thanh-toan" class="dropdown-item">Thanh toán</a>
-                            <a href="#1" class="dropdown-item">Thêm mới</a>
-                            
+                            <a href="index.php?quanli=xem-thuoc-ton-kho" class="dropdown-item">Xem thuốc tồn kho</a>
+                            <a href="index.php?quanli=bao-cao-thuoc-ton-kho" class="dropdown-item">Báo cáo thuốc tồn kho</a>
+                            <a href="index.php?quanli=bao-cao-thuoc-het-han" class="dropdown-item">Báo cáo thuốc hết hạn</a>
                         </div>
                     </div>
-                    
+                    <a href="index.php?quanli=xem-lich-lam-viec" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Lịch làm việc</a>
                 </div>
             </nav>
         </div>

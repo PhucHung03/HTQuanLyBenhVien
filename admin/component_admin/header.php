@@ -23,6 +23,7 @@
 
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="css/style_admin.css">
+    <link rel="stylesheet" href="css/styleContent.css">
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/855290eb72.js" crossorigin="anonymous"></script>
