@@ -15,6 +15,7 @@
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
 
 
@@ -22,10 +23,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link rel="stylesheet" href="css/style_admin.css">
-    <link rel="stylesheet" href="css/styleContent.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/style_admin.css">
+    <link rel="stylesheet" href="./css/styleContent.css">
+    <link rel="stylesheet" href="./css/home.css">
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js" defer></script>
     <script src="https://kit.fontawesome.com/855290eb72.js" crossorigin="anonymous"></script>
 </head>
 

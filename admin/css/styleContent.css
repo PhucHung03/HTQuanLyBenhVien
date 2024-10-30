@@ -418,30 +418,34 @@ p>a{
 
 /* Thu ngân */
 /* Thống kê doanh thu */
+
 .thongKeDoanhThu h4{
     padding-bottom: 20px;
 }
 #title_header{
-    float: left;
     font-size: 15px;
-
+    float: left;
 }
 .thongKeDoanhThu  strong{
     font-size: 20px;
+}
+.search__form{
+    display: flex;
+    float: right;
 }
 #form__search{
     width: 270px;
     padding: 5px;
     height: 30px;
-    margin-left: 550px;
     border: 1px solid black;
     border-radius: 5px;
     outline: none;
-    transition: all 0.3s ease;
+    float: right;
 }
 #form__search::placeholder{
     font-size: 15px;
     padding: 5px;
+    font-style: italic;
 }
 #btn__search img{
     width: 20px;
@@ -458,7 +462,7 @@ p>a{
 }
 
 #table__danhsach{
-    margin-top: 20px;
+    margin-top: 50px;
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
@@ -479,25 +483,28 @@ p>a{
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
 }
-.thongKeDoanhThu .col-stt{
+.col-stt{
     width: 30px;
 }
 #title__tongtien{
     width: 300px;
-    display: flex;
     margin-top: -25px;
     margin-left: 680px;
+    float: right;
+    display: flex;
 }
 #title__tongtien strong{
     font-size: 18px;
+    
 }
 #title__tongtien p{
     font-weight: 100;
     font-size: 18px;
     float: right;
+    
 }
 .btn__xuatbaocao{
-    margin-left: -850px;
+    float: left;
     width: 120px;
     font-size: 15px;
     margin-top: -20px;
