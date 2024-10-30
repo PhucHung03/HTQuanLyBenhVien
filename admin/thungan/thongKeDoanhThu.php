@@ -40,12 +40,12 @@ require('../component_admin/topbar.php');
         <h4>THỐNG KÊ DOANH THU HẰNG NGÀY</h4>
         <div id="top__header">
             <strong id="title_header">Chọn ngày: <input id="chonngay"></strong>
-            
-            <form class="d-flex">
+            <form class="search__form">
                 <input id="form__search" type="search" placeholder="Tìm kiếm hóa đơn..." aria-label="Search">
                 <button id="btn__search" type="submit"><img src="../img/search.png" alt=""></button>
             </form>
-            <div id="table__danhsach">
+        </div>
+        <div id="table__danhsach">
                 <div class="row header">
                     <div class="col-4 col-sm-1 stt">STT</div>
                     <div class="col-4 col-lg-2">Mã hóa đơn</div>
@@ -81,7 +81,6 @@ require('../component_admin/topbar.php');
             </div>
             <button type="button" class="btn btn-success btn__xuatbaocao">Xuất báo cáo</button>
             <div id="title__tongtien"><strong>Tổng doanh thu : <p>1.780.000đ</p></strong></div>
-        </div>
     </div>
    </section>
 </body>
