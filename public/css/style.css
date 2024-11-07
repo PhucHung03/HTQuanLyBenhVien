@@ -79,6 +79,16 @@ ol {
     background: #ffffff;
     box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
   }
+
+header{
+    position: fixed;          
+    top: 0;                   
+    left: 0;                  
+    width: 100%;              
+    z-index: 1000;            
+    background-color: white;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  }
   .header__top{
     height: 100;
     background-color: #61bfeb;
@@ -108,7 +118,6 @@ ol {
 
 .header__menu {
     text-align: center;
-    padding: 10px 0 10px;
   }
 
   .header__menu ul li h5  {
@@ -129,7 +138,7 @@ ol {
     border-radius: 5px;
   }
 .header__menu ul li a:hover {
-    background-color: rgba(232, 232, 232, 0.404); /* Màu nền khi lăn chuột vào */
+    background-color: rgba(232, 232, 232, 0.886); /* Màu nền khi lăn chuột vào */
   }
 
   .header__menu ul li:hover .dropdown {
@@ -165,6 +174,9 @@ ol {
     display: none;
   }
 
+.section__banner{
+  margin-top: 130px;
+}
 #banner__carousel{
   padding: 30px;
   height: auto;
@@ -178,7 +190,7 @@ ol {
   text-align: center;
 }
 .about__us h3{
-  color: #2799d6;
+  color:#0d6efd;
 }
 
 
@@ -213,7 +225,85 @@ ol {
   margin-top: 20px;
 }
 
+.section__bacsi{
+  margin-top: 20px;
+  background-color: #cccbcb23;
+  padding: 100px;
+}
+.mota__titleBacSi{
+  padding-bottom: 20px;
+  font-size: 5mm;
+}
+.card.doctor-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
 
+.card.doctor-card:hover {
+  transform: translateY(-5px);
+}
+
+.card.doctor-card img {
+  width: 100%;          
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #004080;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #004080;
+  border-color: #004080;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #003366;
+  border-color: #003366;
+}
+/* tin tuc */
+.section__tintuc .card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.section__tintuc .card-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.section__tintuc.card-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.section__tintuc .text-primary {
+  color: #007bff !important;
+}
+
+.section__tintuc.text-danger {
+  color: #dc3545 !important;
+}
+
+.section__tintuc.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+/* footer */
 .footer {
   margin-top: 20px;
   padding-top: 55px;

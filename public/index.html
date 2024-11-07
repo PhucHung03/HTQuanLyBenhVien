@@ -11,7 +11,9 @@
     <!-- link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
+    <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -21,25 +23,31 @@
             <div class="row">
                     <div class="header__top">
                         <ul>
-                            <li ><button class="" rel="tel:0284567890" style="border-radius:20px; background-color: rgb(243, 11, 11); border: none;">
-                                <i class="fa fa-heart" style="color: #fcfcfc;"></i>	<span style="color: #ffffff;">Cấp cứu (028) 456-7890</span>
+                            <li><button href="tel:19002003" style="border-radius:20px;background-color: rgb(10, 104, 10); border: none;" >
+                                <i class="fa fa-phone" style="color: #ffffff;"></i>	<span style="color: #ffffff; padding: 10px;">1900 2003</span>
+                                </button>
+                            </li>
+                            <li ><button  rel="tel:0284567890" style="border-radius:20px; background-color: rgb(243, 11, 11); border: none;">
+                                <i class="fa fa-heart" style="color: #ffffff;"></i>	<span style="color: #ffffff;padding: 10px;">Cấp cứu (028) 456 7890</span>
                                 </button>
                             </li>
                             <li><button href="tel:19002003" style="border-radius:20px;background-color: rgb(21, 176, 21); border: none;" >
-                                <i class="fa fa-phone" style="color: #ffffff;"></i>	<span style="color: #ffffff;">1900 2003</span>
+                                <i class="fa fa-calendar" style="color: #ffffff;"></i>	<span style="color: #ffffff;padding: 10px;">Đặt lịch khám</span>
                                 </button>
                             </li>
-                            <li><a href="">Đăng nhập /</a>
-                            <a href="">Đăng kí</a></li>
+                            <li>
+                                <a href="">Đăng nhập /</a>
+                                <a href="">Đăng kí</a>
+                            </li>
                         </ul>
                     </div>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid header__menu">
             <div class="row">
                 <div class="col-lg-4 col-sm-3 " style="text-align: center; padding-bottom: 5px;">
                     <div class="header__img">
-                        <img src="img/cih (1).svg" alt="" style="width: 250px;">
+                        <img src="img/sang tao hospital.png" alt="" style="width: 300px;">
                     </div> 
                 </div>
                 <div class="col-lg-8 col-sm-3 ml-5">
@@ -77,7 +85,7 @@
     <!-- end header  -->
 
     <!-- section  -->
-    <section class="container-fluid">
+    <section class="section__banner container-fluid">
         <!-- banner  -->
         <div class="row">
             <div class="col-lg-12">
@@ -115,7 +123,7 @@
                 <div class="about__us">
                     <h3>VỀ CHÚNG TÔI</h3>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <p>
                         Bệnh viện ST là một cơ sở y tế hiện đại, cung cấp các dịch vụ chăm sóc sức 
                         khỏe toàn diện cho cộng đồng. Với đội ngũ y bác sĩ giàu kinh nghiệm và trang 
@@ -123,7 +131,7 @@
                         còn chú trọng vào sự thoải mái và an toàn của bệnh nhân. ST cam kết mang đến dịch vụ y tế chất lượng cao, đặt lợi ích của bệnh nhân lên hàng đầu và không ngừng cải tiến, phát triển để đáp ứng nhu cầu ngày càng tăng về chăm sóc sức khỏe trong khu vực.
                     </p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <img src="img/img-ve-chung-toi.jpg" alt="img">
                 </div>
             </div>
@@ -186,13 +194,152 @@
         </div>
     </section>
      <!-- end section service -->
-    <!-- section tin tức  -->
-        <div class="section__tintuc">
-            
+    <!-- section bác sĩ  -->
+      
+  <section class="section__bacsi container-fluid">
+    <h2 class="text-center text-primary font-weight-bold">ĐỘI NGŨ CHUYÊN GIA, BÁC SĨ <br></h2>
+    <p class="mota__titleBacSi text-center">Bệnh viện Sáng Tạo sở hữu đội ngũ bác sĩ chuyên môn cao, giàu kinh nghiệm, đặc biệt có nhiều chuyên gia, bác sĩ đầu ngành.</p>
+    
+    <!-- Carousel bắt đầu -->
+    <div id="doctorCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="card doctor-card">
+                <img src="img/bacsi/Ba-Viet-_Gay-me-hoi-suc.jpg" style="height: 300px;" class="card-img-top" alt="Bác Sĩ 1">
+                <div class="card-body text-center">
+                  <h5 class="card-title">BS. BSCKII. PHÙNG VĂN VIỆT </h5>
+                  <p class="card-text">Phó chủ nhiệm Khoa gây mê hồi sức</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="card doctor-card">
+                <img src="img/bacsi/Ba-Viet-_Gay-me-hoi-suc.jpg" class="card-img-top" alt="Bác Sĩ 2">
+                <div class="card-body text-center">
+                  <h5 class="card-title">ThS. BS. Nguyễn Thế Toàn</h5>
+                  <p class="card-text">Trưởng khoa Ngoại</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="card doctor-card">
+                <img src="img/bacsi/ThS.-Nguy-n-Th-To-n.jpg" class="card-img-top" alt="Bác Sĩ 3">
+                <div class="card-body text-center">
+                  <h5 class="card-title">BS. CKII. Trương Thiện Niệm</h5>
+                  <p class="card-text">Trưởng khoa Khám bệnh</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-4">
+              <div class="card doctor-card">
+                <img src="img/bacsi/ThS.-Nguy-n-Th-To-n.jpg" class="card-img-top" alt="Bác Sĩ 4">
+                <div class="card-body text-center">
+                  <h5 class="card-title">BS.CKI Đoàn Thị Liễu</h5>
+                  <p class="card-text">Chuyên khoa Nội - Tổng quát</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-     <!-- end section tin tức  -->
+        
+        <!-- Slide 2 (thêm các bác sĩ khác nếu cần) -->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="card doctor-card">
+                  <img src="img/bacsi/Ba-Viet-_Gay-me-hoi-suc.jpg" style="height: 300px;" class="card-img-top" alt="Bác Sĩ 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">BS. BSCKII. PHÙNG VĂN VIỆT </h5>
+                    <p class="card-text">Phó chủ nhiệm Khoa gây mê hồi sức</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="card doctor-card">
+                  <img src="img/bacsi/Ba-Viet-_Gay-me-hoi-suc.jpg" class="card-img-top" alt="Bác Sĩ 2">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">ThS. BS. Nguyễn Thế Toàn</h5>
+                    <p class="card-text">Trưởng khoa Ngoại</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Nút điều khiển Carousel -->
+      <a class="carousel-control-prev" href="#doctorCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#doctorCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- Carousel kết thúc -->
 
+    <div class="text-center mt-4">
+      <button class="btn btn-primary">Xem Tất Cả Bác Sĩ →</button>
+    </div>
+  </section>
+     <!-- end section bác sĩ  -->
+
+    <!-- section tin tức  -->
+    <div class="section__tintuc container mt-5">
+        <h2 class="text-center text-primary mb-4">
+          TIN TỨC <span class="text-danger">MỚI NHẤT</span>
+        </h2>
+      
+        <div class="row">
+          <!-- Card 1 -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="img/tintuc/tintuc1.jpg" class="card-img-top" alt="Tin tức 1">
+              <div class="card-body">
+                <span class="badge badge-primary mb-2">Tin báo chí</span>
+                <p class="text-muted">05/11/2024</p>
+                <h5 class="card-title">Cụ bà 90 tuổi hồi phục ấn tượng sau phẫu thuật “2 trong 1” điều trị sỏi mật</h5>
+                <p class="card-text">Sau cuộc phẫu thuật “2 trong 1” kết hợp phẫu thuật nội soi cắt túi mật và phẫu thuật nội soi mật tụy ngược dòng lấy sỏi...</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card 2 -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="img/tintuc/tintuc2.jpg" class="card-img-top" alt="Tin tức 2">
+              <div class="card-body">
+                <span class="badge badge-primary mb-2">Tin báo chí</span>
+                <p class="text-muted">22/10/2024</p>
+                <h5 class="card-title">Đau bụng sau ăn, không ngờ bị bóc tách động mạch mạc treo tràng trên hiếm gặp nguy hiểm tính mạng</h5>
+                <p class="card-text">Đau thường vị và đau quặn từng cơn sau khi ăn trưa khoảng 30 phút, nam bệnh nhân không ngờ mình bị bóc tách động mạch mạc...</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="img/tintuc/tintuc3.jpg" class="card-img-top" alt="Tin tức 3">
+              <div class="card-body">
+                <span class="badge badge-primary mb-2">Tin báo chí</span>
+                <p class="text-muted">21/10/2024</p>
+                <h5 class="card-title">Lãnh đạo Bệnh viện Gia An 115 làm chủ tọa và báo cáo tại Hội nghị khoa học thường niên Hội Lọc máu Việt Nam</h5>
+                <p class="card-text">TS.BS. Nguyễn Đức Lộc – Phó Giám đốc kiêm Quyền Giám đốc điều hành Bệnh viện Gia An 115 – vừa làm chủ tọa và tham...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-primary">XEM TẤT CẢ</a>
+        </div>
+      </div>
+    <!-- end section tin tức -->
 
      <!-- footer -->
      <footer class="footer">
