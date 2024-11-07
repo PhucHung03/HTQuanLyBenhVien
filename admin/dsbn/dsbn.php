@@ -37,7 +37,7 @@
                     <td class="border p-3 text-center">0912345678</td>
                     <td class="border p-3">Khám nội khoa, điều trị viêm phổi</td>
                     <td class="border p-3 flex space-x-2 justify-center">
-                        <a href="xctbn.php"><button class="btn btn-outline-primary">Xem</button></a>
+                        <a href="?quanli=xem-chi-tiet-benh-nhan"><button class="btn btn-outline-primary">Xem</button></a>
                         <button class="btn btn-outline-success">Chỉnh sửa</button>
                         <button class="btn btn-outline-danger">Xóa</button>
                     </td>

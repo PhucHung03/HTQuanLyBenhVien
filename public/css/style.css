@@ -79,33 +79,45 @@ ol {
     background: #ffffff;
     box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
   }
-
-
+  .header__top{
+    height: 100;
+    background-color: #61bfeb;
+  }
+.header__top{
+  padding-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  border-bottom: 1px solid black;
+}
+.header__top ul li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
 .header__right {
     padding: 30px 0 27px;
 }
 .header__right ul li {
     list-style: none;
     display: inline-block;
-    margin-right: 20px;
     position: relative;
 }
 
-.header__menu {
-    background-color: #2799d6;
-}
 .header__menu {
     text-align: center;
     padding: 10px 0 10px;
   }
 
   .header__menu ul li h5  {
-    color: #ffffff;
+    color: #0088c6;
   }
 .header__menu ul li {
     list-style: none;
     display: inline-block;
-    margin-left: 40px;
+    margin-left: 10px;
     position: relative;
 }
 .header__menu ul li a {

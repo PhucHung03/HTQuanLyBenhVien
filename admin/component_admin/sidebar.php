@@ -9,17 +9,10 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Quản lí</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="index.php?quanli=quan-ly-lich-lam-viec" class="dropdown-item">Quản lý lịch làm việc</a>
-                        </div>
-                    </div>
-
-
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-bed" style="color: #000000;"></i> Quản lý nhân viên</a>
-                        <div class="dropdown-menu bg-transparent border-0">
                             <a href="index.php?quanli=danh-sach-nhan-vien" class="dropdown-item">Danh sách nhân viên</a>
-
                         </div>
                     </div>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-stethoscope" style="color: #000000;"></i> Bác sĩ</a>
                         <div class="dropdown-menu bg-transparent border-0">

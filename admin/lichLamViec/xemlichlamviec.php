@@ -23,13 +23,26 @@
       text-align: right;
   }
 
+  .table-header {
+      background-color: #007bff; 
+      color: white; 
+    }
+    .title {
+      color: #007bff; 
+    }
 </style>
+
+
+
 <body>
   <div class="container">
-    <h1>Xem lịch làm việc</h1>
-    <div class="row">
+    <h1 class="title">Xem lịch làm việc</h1>
+    <div class="row mb-3">
       <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="Tìm kiếm bác sĩ">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Tìm kiếm bác sĩ">
+          <button class="btn btn-primary" type="button">Tìm</button>
+        </div>
       </div>
       <div class="col-md-3">
         <select class="form-select">
@@ -42,8 +55,9 @@
         <input type="date" class="form-control">
       </div>
     </div>
+
     <table class="table mt-3">
-      <thead>
+      <thead class="table-header">
         <tr>
           <th>STT</th>
           <th>Tên bác sĩ</th>
@@ -61,25 +75,28 @@
           <td>Đang làm việc</td>
         </tr>
         <tr>
-            <td>2</td>
-            <td>BS. Lê Thị D</td>
-            <td>Ngọai khoa</td>
-            <td>9:00am - 11:00pm</td>
-            <td>Đang làm việc</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>BS. Nguyễn Văn B</td>
-            <td>Ngoại khoa</td>
-            <td>7:00am - 6:00pm</td>
-            <td>Đang làm việc</td>
-          </tr>
-
-        </tbody>
+          <td>2</td>
+          <td>BS. Lê Thị D</td>
+          <td>Ngoại khoa</td>
+          <td>9:00am - 11:00pm</td>
+          <td>Đang làm việc</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>BS. Nguyễn Văn B</td>
+          <td>Ngoại khoa</td>
+          <td>7:00am - 6:00pm</td>
+          <td>Đang làm việc</td>
+        </tr>
+      </tbody>
     </table>
+    
     <div class="text-center">
-      <button class="btn btn-success"><a href="?quanli=detail-lich-lam-viec" class="btn btn-success">Chi tiết bác sĩ</a></button>
-      <button class="btn btn-danger">Quay lại</button>
+      <a href="index.php?quanli=detail-lich-lam-viec" class="btn btn-primary btn-sm">Chi tiết bác sĩ</a>
+      <button class="btn btn-secondary">Quay lại</button>
     </div>
   </div>
+  
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
 </body>

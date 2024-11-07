@@ -48,6 +48,13 @@ body {
     margin-left: 5px;
   }
 
+   .table-header {
+      background-color: #007bff; 
+      color: white; 
+    }
+    .title {
+      color: #007bff; 
+    }
 
 
 </style>
@@ -56,7 +63,7 @@ body {
   <div class="container mt-5">
     <div class="card">
       <div class="card-body">
-        <h1 margin:0px  auto>Thông tin lịch làm việc</h1>
+        <h1 margin:0px  auto class="title">Thông tin lịch làm việc</h1>
         <h5 class="card-title" style="color: blue;">Thông tin bác sĩ</h5>
         <p class="card-text">Họ và Tên: Trần Văn A</p>
         <p class="card-text">Mã bác sĩ: 21029771</p>
@@ -69,7 +76,7 @@ body {
       <div class="card-body">
         <h5 class="card-title" style="color: blue;">Lịch làm việc</h5>
         <table class="table">
-          <thead>
+          <thead class="table-header">
             <tr>
               <th>Phòng khám</th>
               <th>Ngày làm việc</th>
@@ -92,8 +99,9 @@ body {
       </div>
     </div>
     <div class="button">
-    <button class="btn btn-danger"><a href="?quanli=detail-lich-lam-viec" class="btn btn-danger">Quay Lại</a></button>
-    <button class="btn btn-success">In thông tin</button>
+    <button class="btn btn-secondary"><a href="index.php?quanli=xem-lich-lam-viec" class="btn btn-secondary">Quay Lại</a></button>
+    <button class="btn btn-primary btn-sm">In thông tin</button>
     </div>
   </div>
+ <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>-->
 </body>

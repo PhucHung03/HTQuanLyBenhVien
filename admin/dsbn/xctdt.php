@@ -12,7 +12,7 @@
                 <p><strong>Trạng Thái Đơn Thuốc:</strong> Đã hoàn thành</p>
                 <p><strong>Ngày Lập Đơn:</strong> 2024-10-30</p>
                 <p><strong>Ghi Chú:</strong> Bệnh nhân cần theo dõi định kỳ.</p>
-                <a href="index.html" class="btn btn-primary">Quay lại danh sách</a>
+                <a href="?quanli=don-thuoc" class="btn btn-primary">Quay lại danh sách</a>
             </div>
         </div>
     </div>
