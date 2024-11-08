@@ -1,0 +1,91 @@
+
+h4{
+    padding-bottom: 20px;
+}
+#title_header{
+    font-size: 15px;
+    float: left;
+}
+strong{
+    font-size: 20px;
+}
+.search__form{
+    display: flex;
+    float: right;
+}
+#form__search{
+    width: 270px;
+    padding: 5px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    float: right;
+}
+#form__search::placeholder{
+    font-size: 15px;
+    padding: 5px;
+    font-style: italic;
+}
+#btn__search img{
+    width: 20px;
+}
+#btn__search{
+    border: 0;
+    background-color: transparent;
+    margin-top: -3px;
+}
+#chonngay
+{
+    width: 100px;
+    height: 20px;
+}
+
+#table__danhsach{
+    margin-top: 50px;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    padding-bottom: 30px;
+}
+#table__danhsach .header{
+    background-color: #009cff;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+#table__danhsach .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+.col-stt{
+    width: 30px;
+}
+#title__tongtien{
+    width: 300px;
+    margin-top: -25px;
+    margin-left: 680px;
+    float: right;
+    display: flex;
+}
+#title__tongtien strong{
+    font-size: 18px;
+    
+}
+#title__tongtien p{
+    font-weight: 100;
+    font-size: 18px;
+    float: right;
+    
+}
+.btn__xuatbaocao{
+    float: left;
+    width: 120px;
+    font-size: 15px;
+    margin-top: -20px;
+}

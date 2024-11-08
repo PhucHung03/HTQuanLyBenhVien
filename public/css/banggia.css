@@ -1,0 +1,16 @@
+.section__banggia{
+    width: 1100px;
+}
+
+h3{
+    margin: 0 auto;
+    text-align: center;
+    color: #007da5;
+    font-weight: bold;
+    font-size: 26px;
+}
+h5{
+    font-size: 17px;
+    font-weight: 300;
+    margin-top: 20px;
+}
