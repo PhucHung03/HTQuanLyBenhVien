@@ -91,8 +91,18 @@ header{
   }
   .header__top{
     height: 100;
-    background-color: #61bfeb;
+    background-color: #007da5;
   }
+
+  .header__top a{
+   color: white;
+   text-decoration: none;
+  }
+
+  .header__top a:hover{
+    text-decoration: none;
+    color:#61bfeb; 
+   }
 .header__top{
   padding-top: 10px;
   width: 100%;
@@ -307,28 +317,37 @@ header{
 .footer {
   margin-top: 20px;
   padding-top: 55px;
-  background-color: #cccbcb23;
+  background-color:  #007da5;
 }
-
+.footer p,h4,hr{
+  color: white;
+}
 .footer a{
  text-decoration: none;
- color: #111111;
+ color: white;
 }
 .footer a:hover{
   text-decoration: none;
   color:#61bfeb; 
  }
-.footer ul{
+.footer ul li{
   padding-top: 10px;
+  width: 100px;
   list-style: none;
+  text-align: center;
  }
 
- .footer__system{
-  margin-bottom: 50px;
-padding-left: 180px;
- }
+.footer__system h4{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
  .footer__system ul li{
   font-family: "Montserrat", sans-serif;
+  margin-left: 169px;
+  display: flex;
+
+
 }
  .footer__copyright__text {
   border-top: 1px solid #e1e1e1;
