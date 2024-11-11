@@ -45,7 +45,6 @@
         }
         .form-container {
             margin: 0 auto;
-            border: 1px solid black;
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -57,10 +56,10 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
-        .form-container h3 {
-            text-align: center;
+        .form-container h2 {
             color: #4b72fa;
-            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: center;
         }
         .form-container p {
             text-align: center;
@@ -170,7 +169,7 @@
     <!-- form đăng ký -->
     <div class="header-spacing">
         <div class="form-container">
-            <h3>Đăng Ký Tài Khoản</h3>
+            <h2>Đăng Ký Tài Khoản</h2>
             <p>để đăng ký nhanh chóng</p>
             <form>
                 <!-- Tên -->

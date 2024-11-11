@@ -11,6 +11,11 @@
     <!-- link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
     <style>
         .login-container {
             margin: 0px auto;
@@ -22,10 +27,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+        .header-spacing {
+            margin-top: 50px; /* Tạo khoảng cách 50px giữa header và form */
+        }
         .login-container h2 {
-            color: #333;
+            color: #4b72fa;
             font-weight: bold;
-            margin-bottom: 20px;
         }
         .form-group label {
             font-weight: 600;
@@ -66,11 +73,6 @@
             text-decoration: underline;
         }
     </style>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
 <body>
     <!-- header -->
     <header class="header">
@@ -134,23 +136,26 @@
     <!-- end header  -->
 
     <!-- section  -->
-    <div class="login-container">
-        <h2>Đăng Nhập</h2>
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" id="email" placeholder="Nhập email hoặc số điện thoại">
+     <div class="header-spacing" >
+        <div class="login-container">
+            <h2>Đăng Nhập</h2>
+            <p>đơn giản và dễ dàng</p>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" placeholder="Nhập email hoặc số điện thoại">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-login">Đăng Nhập</button>
+            </form>
+            <div class="footer-links mt-3">
+                <a href="quenMatKhau.php">Quên mật khẩu?</a> | <a href="dangKy.php">Đăng ký tài khoản</a>
             </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
-            </div>
-            <button type="submit" class="btn btn-login">Đăng Nhập</button>
-        </form>
-        <div class="footer-links mt-3">
-            <a href="quenMatKhau.php">Quên mật khẩu?</a> | <a href="dangKy.php">Đăng ký tài khoản</a>
         </div>
-    </div>
+     </div>
     <!-- footer -->
-     <footer class="footer">
+     <footer class="footer" style="margin-top: 50px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 footer__system">
