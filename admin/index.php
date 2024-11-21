@@ -121,6 +121,18 @@ if (!isset($_GET['quanli'])) {
             break;
 
 
+            case 'edit-tt':
+                require_once "tieptan/edittn.php";
+                break;
+
+                case 'ct-tt':
+                    require_once "tieptan/chitiet.php";
+                    break;    
+
+                    case 'lv-nv':
+                        require_once "quanLy/edit.php";
+                        break;   
+
     }
 }
 

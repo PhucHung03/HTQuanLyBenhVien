@@ -1,124 +1,102 @@
+<?php
+// Kết nối cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "khoa";
 
-<style>
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-/* Định dạng chung */
-.container  {
-  width: 80%;           
-  max-width: 1000px;      
-  margin: 0 auto;           
-  padding: 20px;            
-  border: 1px solid black;  
-  border-radius: 10px;     
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  background-color: #f9f9f9; 
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
 }
 
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Thanh tiêu đề */
-  .container {
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Tìm kiếm */
-  .row {
-    margin-bottom: 20px;
-   
-  }
-  
-  .form-control {
-    height: 20px;
-  }
-  
-  /* Bảng lịch khám */
-  .table {
-    text-align: center;
-  }
-  
-  th,
-  td {
-    padding: 10px;
-  }
-  
-  /* Nút chức năng */
-  .text-end button {
-    margin: 5px;
-  }
-  
-  /* Nút chỉnh sửa */
-  .btn-warning {
-    background-color: orange; /* Thay đổi màu nền nút Chỉnh sửa */
-  }
+// Tìm kiếm lịch hẹn
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
+    $search = trim($_POST['search']); // Lấy dữ liệu tìm kiếm từ form
 
- .table-header {
-      background-color: #007bff; 
-      color: white; 
+    if (!empty($search)) {
+        // Truy vấn lọc lịch hẹn theo mã bệnh nhân
+        $sql = "SELECT lhk.maLichHen, lhk.maBenhNhan, bn.tenBenhNhan, lhk.ngayKham
+                FROM lichhenkham lhk
+                JOIN benhnhan bn ON lhk.maBenhNhan = bn.maBenhNhan
+                WHERE lhk.maBenhNhan LIKE ?";
+        $stmt = $conn->prepare($sql);
+        $searchParam = "%$search%";
+        $stmt->bind_param("s", $searchParam);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    } else {
+        echo "<p style='color: red;'>Vui lòng nhập mã bệnh nhân!</p>";
     }
-    .title {
-      color: #007bff; 
-    }
+} else {
+    // Truy vấn mặc định
+    $sql = "SELECT lhk.maLichHen, lhk.maBenhNhan, bn.tenBenhNhan, lhk.ngayKham
+            FROM lichhenkham lhk
+            JOIN benhnhan bn ON lhk.maBenhNhan = bn.maBenhNhan";
+    $result = $conn->query($sql);
+}
+?>
+<!DOCTYPE html>
+<html lang="vi">
 
-  
-</style>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách lịch hẹn khám</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
 
 <body>
-  <div class="container">
-    <h1 class="title">Danh sách lịch đăng ký khám</h1>
-    <div class="row mb-3">
-      <div class="col-md-7">
-        <div class="input-group ">
-          <input type="text" class="form-control " placeholder="Tìm kiếm thông tin bệnh nhân">
-          <button class="btn btn-primary " type="button">Tìm</button>
-        </div>
-      </div>
+    <div class="container mt-5">
+        <h1 class="text-center">Danh sách lịch hẹn khám</h1>
+
+        <!-- Form tìm kiếm -->
+        <form method="POST" class="row mb-4">
+            <div class="col-md-8">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Nhập mã bệnh nhân" value="<?php echo isset($_POST['search']) ? htmlspecialchars($_POST['search']) : ''; ?>">
+                    <button type="submit" class="btn btn-primary">Tìm</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Hiển thị danh sách -->
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Mã lịch hẹn</th>
+                    <th>Mã bệnh nhân</th>
+                    <th>Tên bệnh nhân</th>
+                    <th>Ngày khám</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($result && $result->num_rows > 0): ?>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['maLichHen']); ?></td>
+                            <td><?php echo htmlspecialchars($row['maBenhNhan']); ?></td>
+                            <td><?php echo htmlspecialchars($row['tenBenhNhan']); ?></td>
+                            <td><?php echo htmlspecialchars($row['ngayKham']); ?></td>
+                            <td>
+
+                                <a href="index.php?quanli=edit-tt&maLichHen=<?php echo $row['maLichHen']; ?>" class="btn btn-warning btn-sm">Chỉnh sửa</a>
+                                <a href="index.php?quanli=ct-tt&maLichHen=<?php echo $row['maLichHen']; ?>"  class="btn btn-info btn-sm">Xem chi tiết</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="5" class="text-center text-danger">Không có dữ liệu!</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
     </div>
-    <table class="table">
-      <thead class="table-header">
-        <tr>
-          <th>STT</th>
-          <th>Mã bệnh nhân</th>
-          <th>Tên bệnh nhân</th>
-          <th>Lịch khám</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>345798</td>
-          <td>Nguyễn Văn A</td>
-          <td>Thứ 4, 9:00am</td>
-          <td><a href="index.php?quanli=benhnhan1"  ><button class="btn btn-primary" >Chỉnh sửa</button></a></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>213456</td>
-          <td>Trần Thị B</td>
-          <td>Thứ 3, 3:00pm</td>
-          <td><a href="index.php?quanli=benhnhan2" class="btn btn-primary" >Chỉnh sửa</a></td>
-        </tr>
-      </tbody>
-    </table>
-    
 
-
-
-
-    <div class="text-end">
-      <button class="btn btn-secondary">Quay lại</button>
-      <button class="btn btn-primary">In lịch khám</button>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+</html>

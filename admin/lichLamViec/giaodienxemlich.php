@@ -1,75 +1,107 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "khoa";
+
+// Kết nối đến cơ sở dữ liệu
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+  die("Kết nối thất bại: " . $conn->connect_error);
+}
+
+// Lấy ID bác sĩ từ URL
+$maBacSi = isset($_GET['id']) ? $_GET['id'] : '';
+
+// Truy vấn thông tin bác sĩ
+$sql = "SELECT bacsi.maBacSi, bacsi.tenBacSi, bacsi.sdt, bacsi.sdt, bacsi.email, bacsi.maKhoa, lichlamviec.ngayLam
+        FROM bacsi
+        LEFT JOIN lichLamViec lichlamviec ON bacsi.maBacSi = lichlamviec.maBacSi
+        WHERE bacsi.maBacSi = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $maBacSi); // Bind tham số
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result && $result->num_rows > 0) {
+  $doctor = $result->fetch_assoc();
+} else {
+  die("Bác sĩ không tồn tại.");
+}
+?>
 
 <style>
   /* Định dạng chung */
-body {
+  body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
   }
-  
+
   /* Thanh tiêu đề */
-  .container  {
-    width: 80%;            
-    max-width: 1000px;        
-    margin: 0 auto;       
-    padding: 20px;            
-    border: 1px solid black;   
-    border-radius: 10px;    
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    background-color: #f9f9f9; 
+  .container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
   }
+
   h1 {
     text-align: center;
     margin-bottom: 20px;
   }
-  
+
   /* Tìm kiếm, chuyên khoa, chọn ngày */
   .row {
     margin-bottom: 20px;
   }
-  
+
   .form-control,
   .form-select {
     height: 40px;
   }
-  
+
   /* Bảng lịch làm việc */
   .table {
     text-align: center;
   }
-  
+
   th,
   td {
     padding: 10px;
   }
-  
+
   /* Các nút chức năng */
   .text-center button {
     margin-left: 5px;
   }
 
-   .table-header {
-      background-color: #007bff; 
-      color: white; 
-    }
-    .title {
-      color: #007bff; 
-    }
+  .table-header {
+    background-color: #007bff;
+    color: white;
+  }
 
-
+  .title {
+    color: #007bff;
+  }
 </style>
 
 <body>
   <div class="container mt-5">
     <div class="card">
       <div class="card-body">
-        <h1 margin:0px  auto class="title">Thông tin lịch làm việc</h1>
+        <h1 class="title">Thông tin lịch làm việc</h1>
         <h5 class="card-title" style="color: blue;">Thông tin bác sĩ</h5>
-        <p class="card-text">Họ và Tên: Trần Văn A</p>
-        <p class="card-text">Mã bác sĩ: 21029771</p>
-        <p class="card-text">Ngày sinh: 19/12/2003</p>
-        <p class="card-text">SĐT: 0344485128</p>
-        <p class="card-text">Chuyên khoa: Nội khoa</p>
+        <p class="card-text">Họ và Tên: <?php echo $doctor['tenBacSi']; ?></p>
+        <p class="card-text">Mã bác sĩ: <?php echo $doctor['maBacSi']; ?></p>
+        <p class="card-text">Ngày sinh: <?php echo $doctor['sdt']; ?></p>
+        <p class="card-text">SĐT: <?php echo $doctor['sdt']; ?></p>
+        <p class="card-text">Chuyên khoa: <?php echo $doctor['maKhoa']; ?></p>
       </div>
     </div>
     <div class="card mt-3">
@@ -84,24 +116,25 @@ body {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>B1.4</td>
-              <td>Thứ 2</td>
-              <td>8:00am - 5:00pm</td>
-            </tr>
-            <tr>
-              <td>A2.3</td>
-              <td>Thứ 4</td>
-              <td>9:00am - 6:00pm</td>
-            </tr>
+            <?php
+            // Rewind the result to display all work schedules for the doctor
+            $stmt->execute();  // Execute again to fetch all schedules
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr>";
+              echo "<td>" . $row['phongKham'] . "</td>";
+              echo "<td>" . $row['ngayLam'] . "</td>";
+              echo "<td>" . $row['caLamViec'] . "</td>";
+              echo "</tr>";
+            }
+            ?>
           </tbody>
         </table>
       </div>
     </div>
     <div class="button">
-    <button class="btn btn-secondary"><a href="index.php?quanli=xem-lich-lam-viec" class="btn btn-secondary">Quay Lại</a></button>
-    <button class="btn btn-primary btn-sm">In thông tin</button>
+      <a href="index.php?quanli=xem-lich-lam-viec" class="btn btn-secondary">Quay Lại</a>
+      <button class="btn btn-primary btn-sm">In thông tin</button>
     </div>
   </div>
- <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>-->
 </body>
