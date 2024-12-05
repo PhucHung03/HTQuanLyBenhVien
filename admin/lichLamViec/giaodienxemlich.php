@@ -14,10 +14,11 @@ if ($conn->connect_error) {
 $maBacSi = isset($_GET['id']) ? $_GET['id'] : '';
 
 // Truy vấn thông tin bác sĩ
-$sql = "SELECT bacsi.maBacSi, bacsi.tenBacSi, bacsi.sdt, bacsi.sdt, bacsi.email, bacsi.maKhoa, lichlamviec.ngayLam
+$sql = "SELECT bacsi.maBacSi, bacsi.tenBacSi, bacsi.sdt, bacsi.email, bacsi.maKhoa, lichlamviec.ngayLam, lichlamviec.phongKham, lichlamviec.caLamViec
         FROM bacsi
         LEFT JOIN lichLamViec lichlamviec ON bacsi.maBacSi = lichlamviec.maBacSi
         WHERE bacsi.maBacSi = ?";
+
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $maBacSi); // Bind tham số
