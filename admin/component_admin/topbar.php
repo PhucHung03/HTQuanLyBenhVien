@@ -49,8 +49,7 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="../admin/img/avatar.png" alt="" style="width: 40px; height: 40px;">
-                            <img class="rounded-circle me-lg-2" src="img/user-default.png" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="img/avatar.png" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Sáng Tạo</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">

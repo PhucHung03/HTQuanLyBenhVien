@@ -123,20 +123,10 @@ header{
 .header__right ul li {
     list-style: none;
     display: inline-block;
-    margin-right: 20px;
     position: relative;
 }
 
 .header__menu {
-    background-color: #2799d6;
-}
-.header__menu {
-    text-align: center;
-    padding: 10px 0 10px;
-  }
-
-  .header__menu ul li h5  {
-    color: #ffffff;
     text-align: center;
   }
 
@@ -146,7 +136,6 @@ header{
 .header__menu ul li {
     list-style: none;
     display: inline-block;
-    margin-left: 40px;
     margin-left: 10px;
     position: relative;
 }
@@ -159,7 +148,6 @@ header{
     border-radius: 5px;
   }
 .header__menu ul li a:hover {
-    background-color: rgba(232, 232, 232, 0.404); /* Màu nền khi lăn chuột vào */
     background-color: rgba(232, 232, 232, 0.886); /* Màu nền khi lăn chuột vào */
   }
 
@@ -199,7 +187,6 @@ header{
 .section__banner{
   margin-top: 130px;
 }
-
 #banner__carousel{
   padding: 30px;
   height: auto;
@@ -213,7 +200,6 @@ header{
   text-align: center;
 }
 .about__us h3{
-  color: #2799d6;
   color:#0d6efd;
 }
 
@@ -249,17 +235,6 @@ header{
   margin-top: 20px;
 }
 
-
-.footer {
-  margin-top: 20px;
-  padding-top: 55px;
-  background-color: #cccbcb23;
-}
-
-.footer a{
- text-decoration: none;
- color: #111111;
-}
 .section__bacsi{
   margin-top: 20px;
   background-color: #cccbcb23;
@@ -355,18 +330,6 @@ header{
   text-decoration: none;
   color:#61bfeb; 
  }
-
-.footer ul{
-  padding-top: 10px;
-  list-style: none;
- }
-
- .footer__system{
-  margin-bottom: 50px;
-padding-left: 180px;
- }
- .footer__system ul li{
-  font-family: "Montserrat", sans-serif;
 .footer ul li{
   padding-top: 10px;
   width: 100px;
@@ -384,6 +347,7 @@ padding-left: 180px;
   margin-left: 169px;
   display: flex;
 
+
 }
  .footer__copyright__text {
   border-top: 1px solid #e1e1e1;
@@ -392,5 +356,5 @@ padding-left: 180px;
   margin-top: 20px;
 }
 
- }
+
  
