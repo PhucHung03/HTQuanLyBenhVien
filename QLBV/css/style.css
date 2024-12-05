@@ -1,0 +1,65 @@
+/* CSS Document */
+#container{
+	box-sizing: border-box;
+	margin: 0px auto;
+	border: 1px solid black;
+	height: 1000px;
+	width: 1200px;
+}
+#header{
+	border-bottom: 1px solid black;
+	background:#81F1AC;
+	height: 20%;
+	width: 100%;
+	font-size: 40px;
+	
+}
+#a1{
+	position: absolute;
+	top: 30px;
+	right: 600px;
+}
+#content{
+	display: flex;
+	height: 70%;
+	border-bottom:1px solid black;
+	
+}
+#left{
+	text-align: center;
+	border-right:1px solid black;
+	flex: 25%;
+}
+#link{
+	font-size: 15px;
+	text-decoration: none;
+	color:#2454E9;
+}
+#right{
+	flex:75%;
+}
+#footer{
+	height: 10%;
+	background: #A4A4A4;
+}
+#sanpham{
+	float: left;
+	border: 1px solid black;
+	margin: 10px 10px 0;
+	height: 200px;
+	width: 170px;
+}
+#sanpham_ten{
+	height: 20px;
+	width: 100%;
+	text-align: center;
+}
+#sanpham_hinh{
+	margin-left: 10px;
+}
+#sanpham_gia{
+	text-align: center;
+	font-weight: bold;
+	color: red;
+	
+}
