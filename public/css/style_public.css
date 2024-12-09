@@ -1,10 +1,20 @@
 @charset "UTF-8";
+@media (max-width: 1200px) {
+  .container {
+      font-size: 1em; /* Tăng/giảm kích thước chữ khi màn hình nhỏ hơn */
+  }
+}
+@media (max-width: 768px) {
+  .container {
+      font-size: 0.9em; /* Thay đổi thêm ở màn hình nhỏ hơn nữa */
+  }
+}
 html,
 body {
   height: 100%;
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
-  color: red;
+
 }
 /* s */
 h1,
@@ -222,6 +232,7 @@ header{
 .specialty a{
   text-align: center;
   text-decoration: none;
+  color: #ffffff;
 }
 
 .specialty h5{
@@ -344,7 +355,7 @@ header{
 
  .footer__system ul li{
   font-family: "Montserrat", sans-serif;
-  margin-left: 169px;
+  margin-left: 135px;
   display: flex;
 
 
@@ -358,3 +369,135 @@ header{
 
 
  
+/* chuyên khoa */
+.chuyenkhoa {
+  width: 100%;
+  margin-top: 130px;
+}
+
+.chuyenkhoa .breadcrumb__links{
+  padding-top: 20px;
+}
+.chuyenkhoa span{
+  color: #0088c6;
+}
+
+.chuyenkhoa a{
+  text-decoration: none;
+  color: black;
+}
+
+.chuyenkhoa .specialty-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  transition: transform 0.2s;
+}
+
+.chuyenkhoa .specialty-box h5{
+    margin-top: 10px;
+}
+.chuyenkhoa .specialty-box:hover {
+  transform: scale(1.05);
+}
+
+.chuyenkhoa .custom-img {
+  width: 100%;
+  height: 200px;     
+  object-fit: cover;   
+  border-radius: 5px;   
+}
+
+
+
+.list__chuyenkhoa .specialty-box {
+  text-align: center;
+  width: 300px; /* Chiều rộng cố định cho mỗi box */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.list__chuyenkhoa  .specialty-box img {
+  width: 500px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.list__chuyenkhoa  .cart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Khoảng cách giữa các box */
+}
+
+/* detail chuyên khoa */
+.detail__chuyenkhoa{
+  margin-top: 120px;
+}
+.detail__chuyenkhoa .breadcrumb__links{
+  padding-top: 20px;
+}
+.detail__chuyenkhoa span{
+  color: #0088c6;
+}
+
+.detail__chuyenkhoa a{
+  text-decoration: none;
+  color: black;
+}
+.detail__chuyenkhoa h4{
+  font-weight: bold;
+  color: #007da5;
+  padding-bottom: 10px;
+}
+.detail__chuyenkhoa .gioithieu{
+  padding: 50px;
+  background-color: rgba(207, 205, 205, 0.267);
+}
+
+.detail__chuyenkhoa .gioithieu p{
+  font-size: 18px;
+}
+.detail__chuyenkhoa .noidung__khoanhi p{
+  font-size: 18px;
+}
+.detail__chuyenkhoa .header-text {
+  font-size: 24px;
+  font-weight: bold;
+  color:#007da5;
+  text-align: center;
+  margin-top: 20px;
+}
+.detail__chuyenkhoa .content {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+.detail__chuyenkhoa .image-caption {
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
+}
+.detail__chuyenkhoa .image-container{
+  text-align: center;
+}
+.detail__chuyenkhoa .image-container img {
+  padding: 10px;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.detail__chuyenkhoa input{
+    background-color: #007da5;
+    color: white;
+}
+.detail__chuyenkhoa .breadcrumb__links{
+  padding-top: 20px;
+}
+.detail__chuyenkhoa span{
+  color: #0088c6;
+}
+

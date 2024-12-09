@@ -1,4 +1,5 @@
 <?php
+
 require('component_admin/header.php');
 require('component_admin/sidebar.php');
 require('component_admin/topbar.php');
@@ -77,6 +78,9 @@ if (!isset($_GET['quanli'])) {
         case 'thong-ke-doanh-thu':
             require_once "thungan/thongKeDoanhThu.php";
             break;
+        case 'hinh-thuc-thanh-toan':
+            require_once "thungan/thanhtoan.php";
+            break;
             // quản lý
         case 'quan-ly-lich-lam-viec':
             require_once "quanLy/QLLichLamViec.php";
@@ -84,12 +88,12 @@ if (!isset($_GET['quanli'])) {
         case 'quan-ly-lich-kham':
             require_once "tiepTan/QLLichKham.php";
             break;
-            case 'danh-sach-nhan-vien':
-                require_once "dsbn/qlnv.php";
-                break;
-            case 'chi-tiet-nhan-vien':
-                require_once "dsbn/xdsnv.php";
-                break;
+        case 'danh-sach-nhan-vien':
+            require_once "dsbn/qlnv.php";
+            break;
+        case 'chi-tiet-nhan-vien':
+            require_once "dsbn/xdsnv.php";
+            break;
             // lich lam viec
         case 'xem-lich-lam-viec':
             require_once "lichLamViec/xemlichlamviec.php";
@@ -97,8 +101,6 @@ if (!isset($_GET['quanli'])) {
         case 'detail-lich-lam-viec':
             require_once "lichLamViec/giaodienxemlich.php";
             break;
-
-
     }
 }
 
