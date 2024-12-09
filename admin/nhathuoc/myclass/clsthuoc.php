@@ -112,7 +112,7 @@
                         echo "<td>" . $row['tenThuoc'] . "</td>";
                         echo "<td>" . $row['soLuong'] . " hộp</td>";
                         echo "<td>" . number_format($row['giaTien'], 0, ',', '.') . " VND</td>";
-                        echo "<td>" . $row['lieuDung'] . "</td>";
+                        echo "<td>" . $row['hanSuDung'] . "</td>";
                         echo '<td style="text-align: center;"><a href="index.php?quanli=thong-tin-het-han&id='.$row['maThuoc'].'" style="color:white;"><button class="button btn-primary">Tạo</button></a></td>';
                         echo "</tr>";
                     }
