@@ -62,6 +62,9 @@ if (!isset($_GET['quanli'])) {
         case 'don-thuoc':
             require_once "dsbn/dt.php";
             break;
+        case 'add-nv':
+            require_once "dsbn/add_nv.php";
+            break;
         case 'tra-cuu-don-thuoc':
             require_once "dsbn/tkdt.php";
             break;
@@ -88,12 +91,18 @@ if (!isset($_GET['quanli'])) {
         case 'quan-ly-lich-kham':
             require_once "tiepTan/QLLichKham.php";
             break;
-            case 'danh-sach-nhan-vien':
-                require_once "dsbn/qlnv.php";
-                break;
-            case 'chi-tiet-nhan-vien':
-                require_once "dsbn/xdsnv.php";
-                break;
+        case 'danh-sach-nhan-vien':
+            require_once "dsbn/qlnv.php";
+            break;
+        case 'edit-nv':
+            require_once "dsbn/edit_nv.php";
+            break;
+        case 'edit-dt':
+            require_once "dsbn/edit_don_thuoc.php";
+            break;
+        case 'chi-tiet-nhan-vien':
+            require_once "dsbn/xdsnv.php";
+            break;
             // lich lam viec
         case 'xem-lich-lam-viec':
             require_once "lichLamViec/xemlichlamviec.php";
