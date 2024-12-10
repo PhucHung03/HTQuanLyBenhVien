@@ -1,11 +1,11 @@
 
 <?php
     session_start();    
-    if (isset($_SESSION['id']) && isset($_SESSION['ten']) && isset($_SESSION['nam']) && isset($_SESSION['diachi']) && isset($_SESSION['gioitinh']) && isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['pass'])){
+    if (isset($_SESSION['id']) && isset($_SESSION['ten']) && isset($_SESSION['nam']) && isset($_SESSION['diachi']) && isset($_SESSION['gioitinh']) && isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['pass']) && isset($_SESSION['quyen'])){
         include("../class/clslogin.php");
         $p = new login();
         // Kiểm tra lại các giá trị session với cơ sở dữ liệu để xác nhận tính hợp lệ
-        $p->confirmlogin($_SESSION['id'], $_SESSION['ten'],$_SESSION['nam'],$_SESSION['diachi'],$_SESSION['gioitinh'],$_SESSION['user'],$_SESSION['email'],$_SESSION['pass']);
+        $p->confirmlogin($_SESSION['id'], $_SESSION['ten'],$_SESSION['nam'],$_SESSION['diachi'],$_SESSION['gioitinh'],$_SESSION['user'],$_SESSION['email'],$_SESSION['pass'],$_SESSION['quyen']);
     } else {
         // Nếu thiếu bất kỳ giá trị nào, chuyển hướng đến trang đăng nhập
         header('location:../account/login.php');
@@ -141,7 +141,7 @@ if (isset($_POST['nut'])) {
                                 <i class="fa fa-phone" style="color: #ffffff;"></i>	<span style="color: #ffffff;">1900 2003</span>
                                 </button>
                             </li>               
-                            <li><a href="admin.php"><?php echo $_SESSION['ten'];?>!</a>
+                            <li><a href="datLichKham.php"><?php echo $_SESSION['ten'];?>!</a>
                             <a href="../account/logout.php">Thoát</a></li>
                         </ul>
                     </div>
@@ -187,79 +187,10 @@ if (isset($_POST['nut'])) {
     </header>
 
     <!-- end header  -->
-
-    <!-- section  -->
-    <div id="ctn">
-        <div class="header">
-            <h2 style="color: #4a56e2;">Đặt Lịch Khám</h2>
-            <p>Cảm ơn Quý Khách hàng đã quan tâm đến dịch vụ chăm sóc sức khỏe của Chúng tôi. Vui lòng gửi thông tin chi tiết để chúng tôi có thể sắp xếp cuộc hẹn.</p>
-        </div>
-        <form action="" method="POST">
-            <div class="row">
-                <!-- Thông Tin Bệnh Nhân -->
-                <div class="col-md-6">
-                        <div class="section-title">Thông Tin Bệnh Nhân</div>
-                            <div class="mb-3">
-                                <label for="fullName" class="form-label">Họ Và Tên</label>
-                                <input type="text" class="form-control" name="hoTen" id="fullName" value="<?php echo htmlspecialchars($hoTen); ?>" placeholder="Nhập họ và tên">
-                            </div>
-                            <div class="mb-3">
-                                <label for="dob" class="form-label">Ngày Sinh</label>
-                                <input type="date" class="form-control" name="ngaySinh" id="dob" value="<?php echo htmlspecialchars($ngaySinh); ?>" placeholder="mm/dd/yyyy">
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Số Điện Thoại</label>
-                                <input type="text" class="form-control" name="sdt" id="phone"  value="<?php echo htmlspecialchars($sdt); ?>" placeholder="Nhập số điện thoại">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" placeholder="Nhập email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="address" class="form-label">Địa Chỉ</label>
-                                <input type="text" class="form-control" name="diaChi" id="address" placeholder="Nhập địa chỉ">
-                            </div>
-                </div>        
-                    <!-- Chọn Lịch Đặt -->
-                <div class="col-md-6">
-                        <div class="section-title">Chọn Lịch Đặt</div>
-                            <div class="mb-3">
-                                <label for="department" class="form-label">Khoa Khám</label>
-                                <select id="department"name="khoaKham" class="form-select">
-                                    <option selected>Chọn khoa khám</option>
-                                    <option value="1">Khoa Nội</option>
-                                    <option value="2">Khoa Ngoại</option>
-                                    <option value="3">Khoa Tai Mũi Họng</option>
-                                    <!-- Add more options as needed -->
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="doctor" class="form-label">Bác Sĩ</label>
-                                <select id="doctor" name="bacSi" class="form-select">
-                                    <option selected>Chọn bác sĩ</option>
-                                    <option value="1">Bác sĩ A</option>
-                                    <option value="2">Bác sĩ B</option>
-                                    <option value="3">Bác sĩ C</option>
-                                    <!-- Add more options as needed -->
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="appointmentDate" class="form-label">Ngày Khám</label>
-                                <input type="date" class="form-control" id="appointmentDate"name="ngayKham" placeholder="mm/dd/yyyy">
-                            </div>
-                            <div class="mb-3">
-                                <label for="appointmentTime" class="form-label">Giờ Khám</label>
-                                <input type="time" class="form-control" id="appointmentTime" name="gioKham" placeholder="--:-- --">
-                            </div>
-                            <div class="mb-3">
-                                <label for="symptoms" class="form-label">Mô Tả Bệnh</label>
-                                <textarea id="symptoms" class="form-control" name="moTa" rows="3" placeholder="Mô tả tình trạng sức khỏe của bạn"></textarea>
-                            </div>
-                            <button id="bt1" type="submit" name="nut">Đặt lịch khám</button>
-                </div>
-            </div>
-        </form>
+    <div>
+        <img src="../img/banner-phuc-hoi-chuc-nang-deskto.jpg" alt="">
     </div>
+    <!-- section  -->
      <!-- footer -->
      <footer class="footer">
         <div class="container">

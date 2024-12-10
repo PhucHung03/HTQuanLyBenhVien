@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputs = form.querySelectorAll("input");
     const emailInput = form.querySelector("input[name='email']");
     const passwordInput = form.querySelector("input[name='pass']");
-    const genderInputs = form.querySelectorAll("input[name='gioitinh']");
+    const genderInputs = form.querySelectorAll("input[name='gioiTinh']");
     const phoneInput = form.querySelector("input[name='sdt']");
     const submitButton = form.querySelector("button[type='submit']");
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let isValid = true;
 
         // Kiểm tra các trường bắt buộc
-        inputs.forEach(input => {
+        inputs.forEach(input => {   
             if (input.type !== "radio" && input.type !== "submit" && input.value.trim() === "") {
                 input.style.borderColor = "red";
                 isValid = false;

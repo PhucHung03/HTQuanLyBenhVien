@@ -81,65 +81,64 @@
     </style>
 <body>
     <!-- header -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                    <div class="header__top">
-                        <ul>
-                            <li ><button class="" rel="tel:0284567890" style="border-radius:20px; background-color: rgb(243, 11, 11); border: none;">
-                                <i class="fa fa-heart" style="color: #fcfcfc;"></i>	<span style="color: #ffffff;">Cấp cứu (028) 456-7890</span>
-                                </button>
-                            </li>
-                            <li><button href="tel:19002003" style="border-radius:20px;background-color: rgb(21, 176, 21); border: none;" >
-                                <i class="fa fa-phone" style="color: #ffffff;"></i>	<span style="color: #ffffff;">1900 2003</span>
-                                </button>
-                            </li>
-                            <li><a href="login.php">Đăng nhập /</a>
-                            <a href="register.php">Đăng kí</a></li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4 col-sm-3 " style="text-align: center; padding-bottom: 5px;">
-                    <div class="header__img">
-                        <img src="../img/cih (1).svg" alt="" style="width: 250px;">
-                    </div> 
-                </div>
-                <div class="col-lg-8 col-sm-3 ml-5">
-                    <div class="header__right">
-                        <div class="header__menu">
+        <header class="header">
+            <div class="container-fluid">
+                <div class="row">
+                        <div class="header__top">
                             <ul>
-                                <li><a href="../index.html"><h5>TRANG CHỦ</h5></a></li>
-                                <li><a href=""><h5>CHUYÊN KHOA</h5></a></li>
-                                <li><a href=""><h5>BÁC SĨ</h5></a></li>
-                                <li><a href=""><h5>DỊCH VỤ</h5></a>
-                                    <ul class="dropdown">
-                                        <li><a href="">Bảng giá dịch vụ</a></li>
-                                        <li><a href="">Quy trình nhập viện</a></li>
-                                        <li><a href="">Quy trình xuất viện</a></li>
-                                        <li><a href="">Liên hệ với chúng tôi</a></li>
-                                    </ul>
+                                <li ><button class="" rel="tel:0284567890" style="border-radius:20px; background-color: rgb(243, 11, 11); border: none;">
+                                    <i class="fa fa-heart" style="color: #fcfcfc;"></i>	<span style="color: #ffffff;">Cấp cứu (028) 456-7890</span>
+                                    </button>
                                 </li>
-                                <li><a href=""><h5>THÀNH TỰU</h5></a></li>
-                                <li><a href=""><h5>TIN TỨC</h5></a></li>
-                                <li><a href=""><h5>BỆNH NHÂN</h5></a>
-                                    <ul class="dropdown">
-                                        <li><a href="datLichKham.php">Đặt lịch khám</a></li>
-                                        <li><a href="">Tra cứu thông tin</a></li>
-                                    </ul>
+                                <li><button href="tel:19002003" style="border-radius:20px;background-color: rgb(21, 176, 21); border: none;" >
+                                    <i class="fa fa-phone" style="color: #ffffff;"></i>	<span style="color: #ffffff;">1900 2003</span>
+                                    </button>
                                 </li>
+                                <li><a href="login.php">Đăng nhập /</a>
+                                <a href="register.php">Đăng kí</a></li>
                             </ul>
-    
+                        </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-3 " style="text-align: center; padding-bottom: 5px;">
+                        <div class="header__img">
+                            <img src="../img/cih (1).svg" alt="" style="width: 250px;">
+                        </div> 
+                    </div>
+                    <div class="col-lg-8 col-sm-3 ml-5">
+                        <div class="header__right">
+                            <div class="header__menu">
+                                <ul>
+                                    <li><a href="../index.html"><h5>TRANG CHỦ</h5></a></li>
+                                    <li><a href=""><h5>CHUYÊN KHOA</h5></a></li>
+                                    <li><a href=""><h5>BÁC SĨ</h5></a></li>
+                                    <li><a href=""><h5>DỊCH VỤ</h5></a>
+                                        <ul class="dropdown">
+                                            <li><a href="">Bảng giá dịch vụ</a></li>
+                                            <li><a href="">Quy trình nhập viện</a></li>
+                                            <li><a href="">Quy trình xuất viện</a></li>
+                                            <li><a href="">Liên hệ với chúng tôi</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href=""><h5>THÀNH TỰU</h5></a></li>
+                                    <li><a href=""><h5>TIN TỨC</h5></a></li>
+                                    <li><a href=""><h5>BỆNH NHÂN</h5></a>
+                                        <ul class="dropdown">
+                                            <li><a href="datLichKham.php">Đặt lịch khám</a></li>
+                                            <li><a href="">Tra cứu thông tin</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+        
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- end header  -->
 
     <!-- section  -->
      <div class="header-spacing" >

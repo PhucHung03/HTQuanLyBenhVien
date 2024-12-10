@@ -8,15 +8,20 @@ if (isset($_POST['nut']) == true) {
     $ngay = $_POST['ngay'];
     $thang = $_POST['thang'];
     $nam = $_POST['nam'];
-    $gioitinh = $_POST['gioitinh'];
+    $gioiTinh = $_POST['gioiTinh'];
     $sdt = $_POST['sdt'];
     $email = $_POST['email'];
-    $pass = md5($_POST['pass']);
+    $password = md5($_POST['pass']);
 
-    // Tạo các giá trị cần chèn vào
-    $hoTen = $ho . " " . $ten; // Ghép họ và tên
-    $ngaySinh = $nam . "-" . $thang . "-" . $ngay; // Chuyển ngày sinh thành định dạng YYYY-MM-DD
-    $diaChi = ""; // Bỏ trống nếu không có địa chỉ
+    // Dữ liệu liên quan đến bảng benhnhan
+    $quyen= "";
+    $hoTen = $ho . " " . $ten;
+    $tenBenhNhan = $ho . " " . $ten; // Ghép họ và tên
+    $namSinh = $nam . "-" . $thang . "-" . $ngay; // Chuyển ngày sinh thành định dạng YYYY-MM-DD
+    $ngaySinh = $nam . "-" . $thang . "-" . $ngay;
+    $diaChi = "";                   // Để trống nếu không nhập
+    $maBHYT = NULL;                 // Mã BHYT, để NULL nếu không có
+    $maPhieuKham = NULL;            // Mã phiếu khám, để NULL nếu không có
 
     try {
         // Kết nối cơ sở dữ liệu bằng PDO
@@ -24,7 +29,7 @@ if (isset($_POST['nut']) == true) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Kiểm tra số điện thoại đã tồn tại hay chưa
-        $checkPhoneQuery = "SELECT COUNT(*) FROM benhnhan WHERE sdt = ?";
+        $checkPhoneQuery = "SELECT COUNT(*) FROM user WHERE sdt = ?";
         $stmt = $pdo->prepare($checkPhoneQuery);
         $stmt->execute([$sdt]);
         $phoneExists = $stmt->fetchColumn();
@@ -32,29 +37,32 @@ if (isset($_POST['nut']) == true) {
         if ($phoneExists) {
             echo "<script>alert('Số điện thoại này đã được đăng ký. Vui lòng nhập số điện thoại khác.');</script>";
         } else {
-            // Câu lệnh SQL
-            $sql = "INSERT INTO benhnhan (maBenhNhan, hoTen, ngaySinh, diaChi, gioiTinh, sdt, email, password) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            // Bắt đầu giao dịch
+            $pdo->beginTransaction();
 
-            // Chuẩn bị statement
-            $stmt = $pdo->prepare($sql);
+            // Chèn dữ liệu vào bảng user
+            $sqluser = "INSERT INTO user (maUser, hoTen, ngaySinh, diaChi, gioiTinh, sdt, email, password, quyen)
+                        VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sqluser);
+            $stmt->execute([$hoTen, $ngaySinh, $diaChi, $gioiTinh, $sdt, $email, $password, $quyen]);
 
-            // Thực thi statement với mảng giá trị
-            $stmt->execute([
-                NULL,        // maBenhNhan (AUTO_INCREMENT)
-                $hoTen,      // hoTen
-                $ngaySinh,   // ngaySinh
-                $diaChi,     // diaChi
-                $gioitinh,   // gioiTinh
-                $sdt,        // sdt
-                $email,      // email
-                $pass        // password
-            ]);
+
+            // Chèn dữ liệu vào bảng benhnhan
+            $sqlBenhNhan = "INSERT INTO benhnhan (maBenhNhan, tenBenhNhan, namSinh, gioiTinh, diaChi, sdt, maBHYT, maPhieuKham) 
+                            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sqlBenhNhan);
+            $stmt->execute([$tenBenhNhan, $namSinh, $gioiTinh, $diaChi, $sdt, $maBHYT, $maPhieuKham]);
+
+            // Xác nhận giao dịch
+            $pdo->commit();
+
             $_SESSION['ten'] = $hoTen; // Lưu tên vào session
 
-            echo "<script>alert('Thêm tài khoản thành công!');</script>";
+            echo "<script>alert('Thêm tài khoản và bệnh nhân thành công!');</script>";
         }
     } catch (PDOException $e) {
+        // Rollback nếu có lỗi
+        $pdo->rollBack();
         echo "Lỗi: " . $e->getMessage();
     }
 
@@ -163,7 +171,7 @@ if (isset($_POST['nut']) == true) {
             background-color: #3a5ec4;
         }
     </style>
-    <script src="../js/dangky.js"></script> 
+    
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -271,13 +279,13 @@ if (isset($_POST['nut']) == true) {
                 <!-- Giới Tính -->
                 <label for="dob" class="text-muted">Giới Tính</label>
                 <div class="gender-group">
-                    <input type="radio" id="female" name="gioitinh" value="Nữ">
+                    <input type="radio" id="female" name="gioiTinh" value="Nữ">
                     <label for="female">Nữ</label>
 
-                    <input type="radio" id="male" name="gioitinh" value="Nam">
+                    <input type="radio" id="male" name="gioiTinh" value="Nam">
                     <label for="male">Nam</label>
 
-                    <input type="radio" id="other" name="gioitinh" value="Tùy chỉnh">
+                    <input type="radio" id="other" name="gioiTinh" value="Tùy chỉnh">
                     <label for="other">Tùy chỉnh</label>
                 </div>
 
