@@ -17,6 +17,9 @@ if (!isset($_GET['url'])) {
         case 'detail-chuyen-khoa':
             require_once "public/view/detail-chuyenkhoa.php";
             break;
+            case 'tra-cuu-tt':
+                require_once "public/view/tracuubenhnhan.php";
+                break;
     }
 }
 

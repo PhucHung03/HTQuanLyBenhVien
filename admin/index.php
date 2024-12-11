@@ -110,6 +110,10 @@ if (!isset($_GET['quanli'])) {
         case 'detail-lich-lam-viec':
             require_once "lichLamViec/giaodienxemlich.php";
             break;
+            case 'ct-benhnhan':
+                require_once "dsbn/xctbn.php";
+                break;
+          
     }
 }
 

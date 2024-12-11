@@ -69,7 +69,7 @@
                                 <li><a href=""><h5>BỆNH NHÂN</h5></a>
                                     <ul class="dropdown">
                                         <li><a href="">Đặt lịch khám</a></li>
-                                        <li><a href="">Tra cứu thông tin</a></li>
+                                        <li><a href="index.php?url=tra-cuu-tt">Tra cứu thông tin</a></li>
                                     </ul>
                                 </li>
                             </ul>

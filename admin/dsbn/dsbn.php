@@ -12,8 +12,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch patient data
-$sql = "SELECT * FROM benhnhan"; // Replace 'benhnhan' with your actual table name
+// Fetch patient data with "Ngày tạo" from phieukham
+$sql = "
+    SELECT benhnhan.*, phieukham.ngayTao
+    FROM benhnhan
+    LEFT JOIN phieukham ON benhnhan.maPhieuKham = phieukham.maPhieuKham
+"; // Make sure this is the correct relationship and table names
+
 $result = $conn->query($sql);
 
 // Check if data exists
@@ -25,6 +30,8 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -40,10 +47,9 @@ $conn->close();
         <!-- Search bar and buttons below title -->
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-              
-               <a href="index.php?quanli=tra-cuu-benh-nhan" > 
+                <a href="index.php?quanli=tra-cuu-benh-nhan">
                     <button class="btn btn-info">Tra cứu bệnh nhân</button>
-               </a>
+                </a>
             </div>
         </nav>
 
@@ -55,7 +61,7 @@ $conn->close();
                     <th class="border p-3">Họ tên</th>
                     <th class="border p-3">Mã khám bệnh</th>
                     <th class="border p-3">Số điện thoại</th>
-                    <th class="border p-3">Lịch sử khám chữa bệnh</th>
+                    <th class="border p-3">Ngày tạo</th>
                     <th class="border p-3">Hành động</th>
                 </tr>
             </thead>
@@ -65,18 +71,19 @@ $conn->close();
                         <tr class="table-row">
                             <td class="border p-3 text-center"><?= $index + 1 ?></td>
                             <td class="border p-3"><?= htmlspecialchars($patient['tenBenhNhan'] ?? '') ?></td>
-                            <td class="border p-3 text-center"><?= htmlspecialchars($patient['maKhamBenh'] ?? '') ?></td>
+                            <td class="border p-3 text-center"><?= htmlspecialchars($patient['maPhieuKham'] ?? '') ?></td>
                             <td class="border p-3 text-center"><?= htmlspecialchars($patient['sdt'] ?? '') ?></td>
-                            <td class="border p-3"><?= htmlspecialchars($patient['lichSuKham'] ?? '') ?></td>
+                            <td class="border p-3"><?= htmlspecialchars($patient['ngayTao'] ?? '') ?></td> <!-- Displaying Ngày tạo -->
                             <td class="border p-3 flex space-x-2 justify-center">
-                                <a href=""><button class="btn btn-outline-primary">Xem</button></a>
-                                <button class="btn btn-outline-success">Chỉnh sửa</button>
+                                <a href="index.php?quanli=ct-benhnhan&maBenhNhan=<?= $patient['maBenhNhan'] ?>">
+                                    <button class="btn btn-outline-primary">Xem</button>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="6" class="text-center p-3">Không có dữ liệu bệnh nhân</td>
+                        <td colspan="6" class="text-center p-3">Không có dữ liệu bệnh nhân</td> <!-- Updated colspan to 6 -->
                     </tr>
                 <?php endif; ?>
             </tbody>
