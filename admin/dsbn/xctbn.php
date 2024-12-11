@@ -57,17 +57,15 @@ $conn->close();
         <?php if ($patient): ?>
             <div class="mb-4">
                 <h2 class="text-xl font-semibold">Thông Tin Bệnh Nhân</h2>
-                <p><strong>Họ tên:</strong> <?= htmlspecialchars($patient['tenBenhNhan']) ?></p>
-                <p><strong>Số điện thoại:</strong> <?= htmlspecialchars($patient['sdt']) ?></p>
-                <p><strong>Lịch sử khám chữa bệnh:</strong> <?= htmlspecialchars($patient['ngayTao']) ?></p>
-                <p><strong>Mã phiếu khám:</strong> <?= htmlspecialchars($patient['maPhieuKham']) ?></p>
+                <!-- Adjust this section in the PHP block -->
+<p><strong>Họ tên:</strong> <?= htmlspecialchars($patient['tenBenhNhan'] ?? 'Chưa có thông tin') ?></p>
+<p><strong>Số điện thoại:</strong> <?= htmlspecialchars($patient['sdt'] ?? 'Chưa có thông tin') ?></p>
+<p><strong>Lịch sử khám chữa bệnh:</strong> <?= htmlspecialchars($patient['ngayTao'] ?? 'Chưa có thông tin') ?></p>
+<p><strong>Mã phiếu khám:</strong> <?= htmlspecialchars($patient['maPhieuKham'] ?? 'Chưa có thông tin') ?></p>
+<p><strong>Chuẩn đoán:</strong> <?= htmlspecialchars($patient['chanDoan'] ?? 'Chưa có thông tin') ?></p>
+<p><strong>Kế hoạch điều trị:</strong> <?= htmlspecialchars($patient['keHoachDieuTri'] ?? 'Chưa có thông tin') ?></p>
+<p><strong>Ghi chú:</strong> <?= htmlspecialchars($patient['ghiChu'] ?? 'Chưa có thông tin') ?></p>
 
-                <!-- Check if 'chanDoan' is set and not null (from phieukham) -->
-                <p><strong>Chuẩn đoán:</strong> <?= htmlspecialchars($patient['chanDoan'] ?? 'Chưa có thông tin') ?></p>
-                <!-- Check if 'keHoachDieuTri' is set and not null (from phieukham) -->
-                <p><strong>Kế hoạch điều trị:</strong> <?= htmlspecialchars($patient['keHoachDieuTri'] ?? 'Chưa có thông tin') ?></p>
-                <!-- Check if 'ghiChu' is set and not null (from phieukham) -->
-                <p><strong>Ghi chú:</strong> <?= htmlspecialchars($patient['ghiChu'] ?? 'Chưa có thông tin') ?></p>
             </div>
 
             <a href="index.php?quanli=tra-cuu-benh-nhan" class="text-blue-500 hover:underline">Quay lại danh sách bệnh nhân</a>

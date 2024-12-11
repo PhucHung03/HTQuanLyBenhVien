@@ -61,7 +61,7 @@ $conn->close();
                     <th class="border p-3">Họ tên</th>
                     <th class="border p-3">Mã khám bệnh</th>
                     <th class="border p-3">Số điện thoại</th>
-                    <th class="border p-3">Ngày tạo</th>
+                    <th class="border p-3">Lịch sữ khám bệnh</th>
                     <th class="border p-3">Hành động</th>
                 </tr>
             </thead>
@@ -71,7 +71,7 @@ $conn->close();
                         <tr class="table-row">
                             <td class="border p-3 text-center"><?= $index + 1 ?></td>
                             <td class="border p-3"><?= htmlspecialchars($patient['tenBenhNhan'] ?? '') ?></td>
-                            <td class="border p-3 text-center"><?= htmlspecialchars($patient['maPhieuKham'] ?? '') ?></td>
+                            <td class="border p-3 text-center"><?= htmlspecialchars($patient['maBenhNhan'] ?? '') ?></td>
                             <td class="border p-3 text-center"><?= htmlspecialchars($patient['sdt'] ?? '') ?></td>
                             <td class="border p-3"><?= htmlspecialchars($patient['ngayTao'] ?? '') ?></td> <!-- Displaying Ngày tạo -->
                             <td class="border p-3 flex space-x-2 justify-center">
