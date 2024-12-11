@@ -1,8 +1,31 @@
+<?php
+require_once("../config/config.php");
 
+// Fetch patient data
+$sql = "SELECT * FROM benhnhan"; // Replace 'benhnhan' with your actual table name
+$result = $conn->query($sql);
 
-<!-- <body class="p-6"> -->
-    <div class=" mx-auto bg-white  rounded-lg p-6">
-        <h1 class="text-3xl font-bold mb-4 text-gray-700">Danh sách bệnh nhân</h1>
+// Check if data exists
+if ($result->num_rows > 0) {
+    $patients = $result->fetch_all(MYSQLI_ASSOC);
+} else {
+    $patients = [];
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Bệnh Nhân</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-6">
+    <div class="mx-auto bg-white rounded-lg p-6">
+        <h1 class="text-3xl font-bold mb-4 text-gray-700">Danh Sách Bệnh Nhân</h1>
         <!-- Search bar and buttons below title -->
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
@@ -10,15 +33,14 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-
-               <a href="index.php?quanli=tra-cuu-benh-nhan" > <button class="btn btn-info">Tra cứu bệnh nhân</button></a>
+               <a href="index.php?quanli=tra-cuu-benh-nhan" > 
+                    <button class="btn btn-info">Tra cứu bệnh nhân</button>
+               </a>
             </div>
         </nav>
 
-
-
         <!-- Patient list table -->
-        <table class="w-100 border-collapse shadow-sm rounded-lg overflow-hidden">
+        <table class="w-full border-collapse shadow-sm rounded-lg overflow-hidden mt-4">
             <thead>
                 <tr class="table-header">
                     <th class="border p-3">STT</th>
@@ -30,43 +52,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-row">
-                    <td class="border p-3 text-center">1</td>
-                    <td class="border p-3">Nguyễn Văn A</td>
-                    <td class="border p-3 text-center">123456</td>
-                    <td class="border p-3 text-center">0912345678</td>
-                    <td class="border p-3">Khám nội khoa, điều trị viêm phổi</td>
-                    <td class="border p-3 flex space-x-2 justify-center">
-                        <a href="?quanli=xem-chi-tiet-benh-nhan"><button class="btn btn-outline-primary">Xem</button></a>
-                        <button class="btn btn-outline-success">Chỉnh sửa</button>
-                        <button class="btn btn-outline-danger">Xóa</button>
-                    </td>
-                </tr>
-                <tr class="table-row">
-                    <td class="border p-3 text-center">2</td>
-                    <td class="border p-3">Trần Thị B</td>
-                    <td class="border p-3 text-center">234567</td>
-                    <td class="border p-3 text-center">0987654321</td>
-                    <td class="border p-3">Khám sản khoa, kiểm tra thai kỳ</td>
-                    <td class="border p-3 flex space-x-2 justify-center">
-                        <button class="btn btn-outline-primary">Xem</button>
-                        <button class="btn btn-outline-success">Chỉnh sửa</button>
-                        <button class="btn btn-outline-danger">Xóa</button>
-                    </td>
-                </tr>
-                <tr class="table-row">
-                    <td class="border p-3 text-center">3</td>
-                    <td class="border p-3">Lê Văn C</td>
-                    <td class="border p-3 text-center">345678</td>
-                    <td class="border p-3 text-center">0909123456</td>
-                    <td class="border p-3">Khám nha khoa, điều trị sâu răng</td>
-                    <td class="border p-3 flex space-x-2 justify-center">
-                        <button class="btn btn-outline-primary">Xem</button>
-                        <button class="btn btn-outline-success">Chỉnh sửa</button>
-                        <button class="btn btn-outline-danger">Xóa</button>
-                    </td>
-                </tr>
-                <!-- Add more patients here if needed -->
+                <?php if (count($patients) > 0): ?>
+                    <?php foreach ($patients as $index => $patient): ?>
+                        <tr class="table-row">
+                            <td class="border p-3 text-center"><?= $index + 1 ?></td>
+                            <td class="border p-3"><?= htmlspecialchars($patient['tenBenhNhan'] ?? '') ?></td>
+                            <td class="border p-3 text-center"><?= htmlspecialchars($patient['maKhamBenh'] ?? '') ?></td>
+                            <td class="border p-3 text-center"><?= htmlspecialchars($patient['sdt'] ?? '') ?></td>
+                            <td class="border p-3"><?= htmlspecialchars($patient['lichSuKham'] ?? '') ?></td>
+                            <td class="border p-3 flex space-x-2 justify-center">
+                                <a href=""><button class="btn btn-outline-primary">Xem</button></a>
+                                <button class="btn btn-outline-success">Chỉnh sửa</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="6" class="text-center p-3">Không có dữ liệu bệnh nhân</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>
+</body>
+</html>

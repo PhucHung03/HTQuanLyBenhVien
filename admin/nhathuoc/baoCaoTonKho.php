@@ -1,3 +1,7 @@
+<?php
+    include("myclass/clsthuoc.php");
+    $p = new clsthuoc();
+?>
 <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,7 +97,9 @@
 
 <div class="container">
     <div class="header">Báo cáo thuốc tồn kho</div>
-    <div class="date">Ngày: 23/10/2024</div>
+    <div class="date">Ngày: <?php
+    echo  date("d/m/Y");
+        ?></div>
     
     <table>
         <tr>
@@ -102,10 +108,10 @@
             <th>Tên thuốc</th>
             <th>SL Tồn</th>
             <th>Đơn giá</th>
-            <th>Số tiền</th>
+            <th>Liều dùng</th>
             <th>HSD</th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>1</td>
             <td>MT0001</td>
             <td>Levothyroxine</td>
@@ -131,16 +137,15 @@
             <td></td>
             <td></td>
             <td></td>
-        </tr>
-
-        <tr>
-            <td colspan="8" class="total">Tổng cộng: 22.500.000 VND</td>
-        </tr>
+        </tr> -->
+        <?php
+            $p->baoCaoTonKho();
+        ?>
     </table>
 
     <div class="button-container">
-        <button class="button cancel-button">Hủy</button>
-        <button class="button report-button">Tạo báo cáo</button>
+    <a href="../admin/"style="color:white;"><button class="button cancel-button">Hủy</button></a>
+        <button class="button report-button">In báo cáo</button>
     </div>
 </div>
 

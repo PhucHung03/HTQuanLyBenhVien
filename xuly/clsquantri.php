@@ -181,7 +181,7 @@ include("clsbenhvien.php");
                       <div id="thongtin__chandoan"><span>Chẩn đoán: </span><p>'.$chanDoan.'</p></div>
                       <div id="thongtin__kehoachdieutri"><span>Kế hoạch điều trị: </span><p>'.$keHoachDieuTri.'</p></div>';
         
-                // Now fetch and display the medical history (multiple records)
+                
                 $sql_history = "SELECT ngayTao, tinhTrangBenh FROM phieukham WHERE maBenhNhan = '$mabenhnhan' ORDER BY ngayTao DESC";
                 $history_result = mysqli_query($link, $sql_history);
         

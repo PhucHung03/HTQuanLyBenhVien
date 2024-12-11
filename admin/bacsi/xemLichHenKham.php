@@ -7,23 +7,31 @@
                 </div>
             </div>
             <div class="container-fluid">
-
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                        <label for="date">Chọn ngày:</label>
-                        <div class="form-group mb-1">
-                            <input type="date" id="date" name="date" class="form-control">
+                <form action="" method="post">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex">
+                            <label for="date">Chọn ngày:</label>
+                            <div class="form-group mb-1">
+                                <input type="date" id="date" name="date" class="form-control">
+                            </div>
+    
                         </div>
-
-                    </div>
-                    <div class="d-flex">
-                        <div class="form-group">
-                            <input type="search" class="form-control" placeholder="Tìm bệnh nhân">
+                        <div class="d-flex">
+                            <div class="form-group">
+                                <input type="search" class="form-control" name="keyword" placeholder="Tìm bệnh nhân">
+                            </div>
+                            <input type="submit" name="timBenhNhan" class="btn btn-primary" value="Tìm">
+    
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Tìm">
-
                     </div>
-                </div>
+                </form>
+                <?php 
+                if(isset($_POST['timBenhNhan'])){
+                    $keyword = $_POST['keyword'];
+                    $date = $_POST['date'];
+                }
+                
+                ?>
             </div>
             <div class="container-fluid justify-content-between mb-4">
                 <div class="table-container pb-4">
@@ -33,32 +41,26 @@
                                 <th>STT</th>
                                 <th>Mã bệnh nhân</th>
                                 <th>Tên bệnh nhân</th>
-                                <th>Giờ khám</th>
+                                <th>Giờ hẹn khám</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>25000123</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>9:00</td>
-                                <td><button class="action-btn" onclick="window.location.href='index.php?quanli=xem-chi-tiet-lich-hen-benh-nhan'">Xem</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>26123433</td>
-                                <td>Trần Văn B</td>
-                                <td>10:00</td>
-                                <td><button class="action-btn" onclick="window.location.href='index.php?quanli=xem-chi-tiet-lich-hen-benh-nhan'">Xem</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>26000534</td>
-                                <td>Phạm Văn C</td>
-                                <td>13:00</td>
-                                <td><button class="action-btn" onclick="window.location.href='index.php?quanli=xem-chi-tiet-lich-hen-benh-nhan'">Xem</button></td>
-                            </tr>
+                            <?php 
+                                require_once("../config/config.php");
+                                $sql = "select maLichHen, bn.maBenhNhan, bn.tenBenhNhan, gioKham from benhnhan bn join lichhenkham lhk on bn.maBenhNhan = lhk.maBenhNhan  AND bn.tenBenhNhan LIKE '%".$keyword."%'";
+                                $result = mysqli_query($conn,$sql);
+                                $stt = 0;
+                                while($row= mysqli_fetch_assoc($result)){
+                                ?> 
+                                <tr>
+                                    <td><?= ++$stt ?></td>
+                                    <td><?=$row['maBenhNhan']?></td>
+                                    <td><?=$row['tenBenhNhan']?></td>
+                                    <td><?= $row['gioKham']?></td>
+                                    <td><button class="action-btn" onclick="window.location.href='index.php?quanli=xem-chi-tiet-lich-hen-benh-nhan&id=<?=$row['maLichHen']?>'">Xem</button></td>
+                                </tr>
+                                <?php }?>
                         </tbody>
                     </table>
                 </div>

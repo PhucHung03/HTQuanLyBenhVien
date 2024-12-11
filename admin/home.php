@@ -1,25 +1,50 @@
+<?php
+    include("./xuly/clsquantri.php");
+    $p = new quantri();
+
+?>
 <div class="home">
     <section class="container-fluid pt-4 px-4" >
         <div class="menu__thongso">
             <div id="thongso__1">
-                    <img src="../admin/img/money.png" alt="">
-                    <p class="thongso__name">Doanh thu</p>
-                    <p class="thongso__number">800.000đ</p>
+            <img src="../admin/img/money.png" alt="">    
+            <p class="thongso__name">Doanh thu</p>
+            <p class="thongso__number">
+                    <?php
+                        $p->doanhthuDasboard("SELECT * FROM hoadon WHERE 1=1");
+                    ?>
+            </p>
             </div>
             <div id="thongso__2">
                     <img src="../admin/img/patient.png" alt="">
                     <p class="thongso__name">Tổng bệnh nhân</p>
-                    <p class="thongso__number">70</p>
+                    <p class="thongso__number">
+                        <?php
+                            $sql = "SELECT COUNT(*) AS totalPatients FROM benhnhan";
+                            $p->tinhTongBenhNhan($sql);
+                        ?>
+                    </p>
             </div>
             <div id="thongso__3">
                     <img src="../admin/img/operation.png" alt="">
                     <p class="thongso__name">Hoạt động</p>
-                    <p class="thongso__number">54</p>
+                    <p class="thongso__number">
+                        <?php
+                            $hoatDong = rand(1,100);
+                            echo $hoatDong;
+                        ?>
+                    </p>
             </div>
             <div id="thongso__4">
                     <img src="../admin/img/lich.png" alt="">
                     <p class="thongso__name">Lịch hẹn</p>
-                    <p class="thongso__number">35</p>
+                    <p class="thongso__number">
+                        <?php
+                            $sql = "SELECT COUNT(*) AS totalLichHen FROM lichhenkham";
+                            $p->tinhTongLichHen($sql);
+                        ?>
+                        
+                    </p>
             </div>
         </div>
         <div class="menu__thongso2">
@@ -49,11 +74,14 @@
         <div class="menu__thongso3">
             <div id="thongso__benhnhan">
                 <p id="thongso__title">Bệnh nhân</p>
-                <a href="#">Xem thêm <img src="../admin/img/arrow.png" alt=""></a></a>
+                <a href="index.php?quanli=danh-sach-benh-nhan">Xem thêm <img src="../admin/img/arrow.png" alt=""></a></a>
                 <div class="patients-container">
                     <div class="patients-info">
                         <p>Tổng bệnh nhân</p>
-                        <h2>784,670 Người</h2>
+                        <h2><?php
+                            $sql = "SELECT COUNT(*) AS totalPatients FROM benhnhan";
+                            $p->tinhTongBenhNhan($sql);
+                        ?></h2>
                         <div class="legend">
                             <div class="legend-item">
                                 <span class="color-box new"></span> Mới

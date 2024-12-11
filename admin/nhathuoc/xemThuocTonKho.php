@@ -1,3 +1,7 @@
+<?php
+    include("myclass/clsthuoc.php");
+    $p = new clsthuoc();
+?>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -73,10 +77,13 @@
 
 <body>
 <div class="container">
-    <div class="header">Danh sách thuốc tồn kho</div>
+    <div class="header">Danh sách thuốc</div>
     
     <div class="search-box">
-        <input type="text" placeholder="Tìm kiếm">
+        <form action="" method="post">
+        <input type="text" placeholder="Tìm kiếm" id="search" name="search">
+        <button type="submit" class="btn btn-primary" id="timkiem" name="timkiem" style="border-radius:20px;margin-left:5px">Search</button>
+        </form>
     </div>
     
     <table>
@@ -89,7 +96,7 @@
             <th>Liều dùng</th>
             <th></th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>1</td>
             <td>MT0001</td>
             <td>Levothyroxine</td>
@@ -115,7 +122,42 @@
             <td>450.000 VND</td>
             <td>1 lần/ngày</td>
             <td><button class="button"><a href="?quanli=xem-thong-tin-thuoc">Xem</a></button></td>
+        </tr> -->
+        <?php
+            $query = "SELECT * from thuoc where 1=1";
+            if(!isset($_POST['timkiem'])){
+                $p->xemThuocTonKho();
+            }
+            if(isset($_POST['timkiem']) && !empty($_POST['search'])){
+                $search = $_POST['search'];
+                $query .=" AND tenThuoc LIKE '%$search%'";
+                $ketqua = $p->timKiemThuoc($query);
+                if(!empty($ketqua)){
+                    $stt=1;
+                    foreach ($ketqua as $row){
+                        echo "<tr>";
+                        echo "<td>" . $stt++ . "</td>";
+                        echo "<td>" . $row['maThuoc'] . "</td>";
+                        echo "<td>" . $row['tenThuoc'] . "</td>";
+                        echo "<td>" . $row['soLuong'] . " hộp</td>";
+                        echo "<td>" . number_format($row['giaTien'], 0, ',', '.') . " VND</td>";
+                        echo "<td>" . $row['lieuDung'] . "</td>";
+                        echo '<td><a href="index.php?quanli=xem-thong-tin-thuoc&id='.$row['maThuoc'].'" ><button class="button"><span style="color:white;">Xem</span></button></a></td>';
+                        echo "</tr>";
+                    }
+                }
+                else {
+                    echo "<tr><td colspan='7'>Không tìm thấy loại thuốc cần tìm.</td></tr>";
+                    
+                }
+            }
+        ?>
+                <tr>
         </tr>
     </table>
 </div>
 </body>
+<?php
+    
+
+?>

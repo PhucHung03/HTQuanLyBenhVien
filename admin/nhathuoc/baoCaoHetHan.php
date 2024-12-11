@@ -1,100 +1,152 @@
+<?php
+    include("myclass/clsthuoc.php");
+    $p = new clsthuoc();
+?>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f4f4f4;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
 
-    .container {
-        margin-top:20px;
-        width: 60%;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-    }
+        .container {
+            margin-top:20px;
+            width: 70%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-    .header {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-    .info-box {
-        background-color: #f7f7f7;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-    }
+        .date {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #555;
+        }
 
-    .info-box h2 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
 
-    .info-box p {
-        margin: 5px 0;
-    }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
 
-    .button-container {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-    }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
 
-    .button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        cursor: pointer;
-        font-size: 16px;
-    }
+        .total {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
 
-    .back-button {
-        background-color: #f28b82;
-    }
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-    .ok-button {
-        background-color: #aecbfa;
-    }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-    .back-button:hover {
-        background-color: #e57373;
-    }
+        .cancel-button {
+            background-color: #f28b82;
+        }
 
-    .ok-button:hover {
-        background-color: #90caf9;
-    }
-    #text{
-        border-radius:12px;
-    }
-</style>
-</head>
+        .report-button {
+            background-color: #aecbfa;
+        }
+
+        .cancel-button:hover {
+            background-color: #e57373;
+        }
+
+        .report-button:hover {
+            background-color: #90caf9;
+        }
+    </style>
+
 <body>
+
 <div class="container">
-    <div class="header">Loại thuốc</div>
+    <div class="header">Báo cáo thuốc sắp hết hạn</div>
+    <div class="date">Ngày: <?php
+    echo  date("d/m/Y");
+        ?></div>
     
-    <div class="info-box">
-        <h2>Thông tin thuốc</h2>
-        <p><strong>Mã thuốc:</strong> <input type="text" name="text" id="text" value="MT0001"></p>
-        <p><strong>Tên thuốc:</strong> <input type="text" name="text" id="text" value="Levothyroxine"></p>
-        <p><strong>Số lượng tồn kho:</strong> <input type="text" name="text" id="text" value="300 hộp"></p>
-        <p><strong>Giá tiền:</strong> <input type="text" name="text" id="text" value="75.000 VND"></p>
-        <p><strong>Ngày sản xuất:</strong> <input type="text" name="text" id="text" value="06/11/2021"></p>
-        <p><strong>Hạn sử dụng:</strong> <input type="text" name="text" id="text" value="11/2024"></p>
-        <p><strong>Ghi chú:</strong><br><textarea name="text" id="text" cols="60" rows="4">Thuốc Levothyroxine hiện còn 300 hộp và sẽ hết hạn vào tháng 11/2024.</textarea> </p>
-    </div>
-    
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Mã thuốc</th>
+            <th>Tên thuốc</th>
+            <th>SL Tồn</th>
+            <th>Đơn giá</th>
+            <th>HSD</th>
+            <th>Tạo báo cáo</th>
+        </tr>
+        <!-- <tr>
+            <td>1</td>
+            <td>MT0001</td>
+            <td>Levothyroxine</td>
+            <td>300 hộp</td>
+            <td>75.000 VND</td>
+            <td>08/2023</td>
+            <td style="text-align: center;"><button class="button btn-primary"><a href="?quanli=thong-tin-het-han" style="color:white;">Tạo</a></button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr> -->
+        <?php
+            $p->baoCaoHetHan();
+        ?>
+    </table>
+
     <div class="button-container">
-        <button class="button back-button">Trở lại</button>
-        <button class="button ok-button">OK</button>
+    <a href="../admin/"style="color:white;"><button class="button cancel-button">Hủy</button></a>
+        
     </div>
 </div>
+
 </body>

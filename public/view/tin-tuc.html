@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/tintuc.css">
+    <title>Tin tức</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/tintuc.css">
 
     <!-- link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -55,19 +55,19 @@
                     <div class="header__right">
                         <div class="header__menu">
                             <ul>
-                                <li><a href="index.html"><h5>TRANG CHỦ</h5></a></li>
-                                <li><a href=""><h5>CHUYÊN KHOA</h5></a></li>
+                                <li><a href="index.php"><h5>TRANG CHỦ</h5></a></li>
+                                <li><a href="index.php?url=chuyen-khoa"><h5>CHUYÊN KHOA</h5></a></li>
                                 <li><a href=""><h5>BÁC SĨ</h5></a></li>
                                 <li><a href=""><h5>DỊCH VỤ</h5></a>
                                     <ul class="dropdown">
-                                        <li><a href="banggiadichvu.html">Bảng giá dịch vụ</a></li>
+                                        <li><a href="index.php?url=bang-gia-dich-vu">Bảng giá dịch vụ</a></li>
                                         <li><a href="">Quy trình nhập viện</a></li>
                                         <li><a href="">Quy trình xuất viện</a></li>
                                         <li><a href="">Liên hệ với chúng tôi</a></li>
                                     </ul>
                                 </li>
                                 <li><a href=""><h5>THÀNH TỰU</h5></a></li>
-                                <li><a href="tin-tuc.html"><h5>TIN TỨC</h5></a></li>
+                                <li><a href="index.php?url=tin-tuc"><h5>TIN TỨC</h5></a></li>
                                 <li><a href=""><h5>BỆNH NHÂN</h5></a>
                                     <ul class="dropdown">
                                         <li><a href="">Đặt lịch khám</a></li>
@@ -113,7 +113,7 @@
         </aside>
         <aside class="danhsach__tintuc">
             <div class="tin__tuc">
-                <img src="../public/img/tintuc/tintuc1.jpg" alt="">
+                <img src="./public/img/tintuc/tintuc1.jpg" alt="">
                 <div id="noidung__tintuc">
                     <strong class="title__tintuc">Cụ bà 90 tuổi hồi phục ấn tượng sau phẫu thuật “2 trong 1” điều trị sỏi mật</strong>
                     <hr>
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="tin__tuc">
-                <img src="../public/img/tintuc/tintuc2.jpg" alt="">
+                <img src="./public/img/tintuc/tintuc2.jpg" alt="">
                 <div id="noidung__tintuc">
                     <strong class="title__tintuc">Đau bụng sau ăn, không ngờ bị bóc tách động mạch mạc treo tràng trên hiếm gặp nguy hiểm tính mạng</strong>
                     <hr>
@@ -129,7 +129,7 @@
                 </div>
             </div>
             <div class="tin__tuc">
-                <img src="../public/img/tintuc/tintuc3.jpg" alt="">
+                <img src="./public/img/tintuc/tintuc3.jpg" alt="">
                 <div id="noidung__tintuc">
                     <strong class="title__tintuc">Lãnh đạo Bệnh viện Gia An 115 làm chủ tọa và báo cáo tại Hội nghị khoa học thường niên Hội Lọc máu Việt Nam</strong>
                     <hr>
@@ -139,46 +139,6 @@
         </aside>
     </section>
 </body>
-<!-- footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 footer__descrice">
-                <h4>Bệnh viện Sáng Tạo</h4>
-                <hr>
-                <p>Số 3, đường 17A, P. Bình Trị Đông B, Quận Bình Tân, TP.HCM</p>
-                <p>Tổng đài: 1900 8146</p>
-                <p>Cấp cứu 24/7: (028) 6290 1155</p>
-                <p>Email: sangtaoHospital@st.com.vn</p>    
-            </div>
-            <div class="col-lg-4 footer__system" >
-                <h4>Dịch vụ</h4>
-                <ul>
-                    <li><a href="#">Chuyên Khoa</a></li>
-                    <li><a href="#">Gói dịch vụ </a></li>
-                    <li><a href="#">Bảo hiểm</a></li>
-                    <li><a href="#">Đặt lịch hẹn</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-4 footer__search" >
-              <div><img src="img/logoFooter.png" alt="logoFooter"></div>
-              <div><p>THEO DÕI TIN TỨC VÀ DỊCH VỤ MỚI NHẤT CỦA CHÚNG TÔI</p></div>
-              <div class=" email-container">
-                <label><input class="text-content-footer input-email form-control" type="email" placeholder="Email của bạn"></label>
-                <button class="btn btn-success">Gửi</button>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                <div class="footer__copyright__text">
-                    <p>Bản quyền &copy; 2024 thuộc về Bệnh viện Sáng Tạo <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Sáng Tạo Hospital</a></p>
-                </div>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </div>
-        </div>
-    </div>
- </footer>
+
 </body>
 </html>

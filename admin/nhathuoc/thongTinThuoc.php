@@ -1,3 +1,7 @@
+<?php
+    include("myclass/clsthuoc.php");
+    $p = new clsthuoc();
+?>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -78,7 +82,7 @@
 <div class="container">
     <div class="header">Loại thuốc</div>
     
-    <div class="info-box">
+    <!-- <div class="info-box">
         <h2>Thông tin thuốc</h2>
         <p><strong>Mã thuốc:</strong> MT0001</p>
         <p><strong>Tên thuốc:</strong> Levothyroxine</p>
@@ -87,11 +91,15 @@
         <p><strong>Liều dùng:</strong> 1 lần/ ngày</p>
         <p><strong>Hạn sử dụng:</strong> 08/2025</p>
         <p><strong>Chi tiết:</strong> Levothyroxine là một loại hormone tổng hợp của tuyến giáp, được sử dụng để điều trị các bệnh liên quan đến suy giáp (tuyến giáp hoạt động kém).</p>
+    </div> -->
+    <div class="info-box">
+        <?php
+            $idsp=$_REQUEST['id'];
+            $p->xemthongtinthuoc("SELECT * FROM thuoc where maThuoc = '$idsp' limit 1");
+        ?>
     </div>
-    
     <div class="button-container">
-        <button class="button back-button">Trở lại</button>
-        <button class="button ok-button">OK</button>
+    <a href="index.php?quanli=xem-thuoc-ton-kho" style="color:white;text-decoration:none;"><button class="button back-button">Trở lại</button></a>
     </div>
 </div>
 </body>
