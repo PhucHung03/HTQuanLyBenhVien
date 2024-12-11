@@ -302,29 +302,45 @@ if (isset($_POST['nut'])) {
                         <div class="section-title">Chọn Lịch Đặt</div>
                             <div class="mb-3">
                                 <label for="department" class="form-label">Khoa Khám</label>
-                                <select id="department" name="khoaKham" class="form-select">
-                                    <option selected>Chọn khoa khám</option>
-                                    <?php
-                                        // Lặp qua các khoa khám và hiển thị dưới dạng các thẻ <option>
-                                        foreach ($khoaKhamList as $khoa) {
-                                            echo "<option value='" . htmlspecialchars($khoa['maKhoa']) . "'>" . htmlspecialchars($khoa['tenKhoa']) . "</option>";
-                                        }
-                                    ?>
-                                </select>
-
+                                <select id="department" name="khoaKham" class="form-select" onchange="filterDoctors()">
+                                <option selected>Chọn khoa khám</option>
+                                <?php
+                                    foreach ($khoaKhamList as $khoa) {
+                                        echo "<option value='" . htmlspecialchars($khoa['maKhoa']) . "'>" . htmlspecialchars($khoa['tenKhoa']) . "</option>";
+                                    }
+                                ?>
+                            </select>
                             </div>
                             <div class="mb-3">
                                 <label for="doctor" class="form-label">Bác Sĩ</label>
                                 <select id="doctor" name="bacSi" class="form-select">
                                     <option selected>Chọn bác sĩ</option>
                                     <?php
-                                        // Lặp qua các bác sĩ và hiển thị dưới dạng các thẻ <option>
-                                        foreach ($bacSiList as $bacSi) {
-                                            echo "<option value='" . htmlspecialchars($bacSi['maBacSi']) . "'>" . htmlspecialchars($bacSi['tenBacSi']) . "</option>";
-                                        }
+                                        // // Lặp qua các bác sĩ và hiển thị dưới dạng các thẻ <option>
+                                        // foreach ($bacSiList as $bacSi) {
+                                        //     echo "<option value='" . htmlspecialchars($bacSi['maBacSi']) . "'>" . htmlspecialchars($bacSi['tenBacSi']) . "</option>";
+                                        // }
                                     ?>
                                 </select>
                             </div>
+                            <script>
+                                function filterDoctors() {
+                                    const maKhoa = document.getElementById("department").value;
+                                    fetch(`getDoctorsByDepartment.php?maKhoa=${maKhoa}`)
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            const doctorSelect = document.getElementById("doctor");
+                                            doctorSelect.innerHTML = '<option selected>Chọn bác sĩ</option>';
+                                            data.forEach(doctor => {
+                                                const option = document.createElement("option");
+                                                option.value = doctor.maBacSi;
+                                                option.textContent = doctor.tenBacSi;
+                                                doctorSelect.appendChild(option);
+                                            });
+                                        })
+                                        .catch(error => console.error("Error fetching doctors:", error));
+                                }
+                            </script>
                             <div class="mb-3">
                                 <label for="appointmentDate" class="form-label">Ngày Khám</label>
                                 <input type="date" class="form-control" id="appointmentDate"name="ngayKham" placeholder="mm/dd/yyyy">
