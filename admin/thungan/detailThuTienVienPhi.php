@@ -6,7 +6,7 @@ if (isset($_POST['timKiemThanhToan'])) {
     $keyword = $_POST['maBenhNhan'];
 
     // Xây dựng câu truy vấn
-    $sql = "SELECT lhk.maLichHen, bn.maBenhNhan, bn.tenBenhNhan, bn.sdt, bn.diaChi, bn.maBHYT, bs.maKhoa, kk.tenKhoa, bs.tenBacSi, lhk.ngayKham, lhk.gioKham, lhk.moTaSucKhoe
+    $sql = "SELECT lhk.maLichHen, bn.maBenhNhan, bn.tenBenhNhan, bn.sdt, bn.diaChi, bn.maBHYT, bs.maKhoa, kk.tenKhoa, bs.tenBacSi, lhk.ngayKham, lhk.gioKham, lhk.moTa
             FROM benhnhan bn 
             JOIN lichhenkham lhk ON bn.maBenhNhan = lhk.maBenhNhan
             JOIN bacsi bs ON lhk.maBacSi = bs.maBacSi 
@@ -62,6 +62,7 @@ if (isset($_POST['timKiemThanhToan'])) {
                                             $tongtien = 0;
                                             while ($item = mysqli_fetch_assoc($res)) {
                                                 $tongTien += $item['donGia'];
+                                                $_SESSION['tongtien']=$tongTien;
                                           ?> 
                                           <tbody>
                                               <tr>
@@ -80,11 +81,10 @@ if (isset($_POST['timKiemThanhToan'])) {
                         </div>
                     <div class="d-flex justify-content-end">
                         <button type="reset" class="btn btn-danger me-2" name="btnHuy" onclick="window.location.href='index.php?quanli=thanh-toan'">Hủy</button>
-                        <button type="submit" class="btn btn-success" name="btnThanhToan">Thanh Toán</button>
+                        <a href="index.php?quanli=thong-tin-thanh-toan&maLichHen=<?=$row['maLichHen'] ?>" class="btn btn-success me-2" name="btnThanhToan">Thanh toán</a>
                     </div>
 
                     </form>
-
                 </div>
             </div>
         </div>

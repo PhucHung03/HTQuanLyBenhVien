@@ -11,7 +11,7 @@
 
                 <div class="d-flex justify-content-between ">
                     <?php 
-                    $sql = "SELECT lhk.maLichHen, bn.maBenhNhan, bn.tenBenhNhan, bn.sdt, bn.diaChi, bn.maBHYT, bs.maKhoa, kk.tenKhoa, bs.tenBacSi, lhk.ngayKham, lhk.gioKham, lhk.moTaSucKhoe
+                    $sql = "SELECT lhk.maLichHen, bn.maBenhNhan, bn.tenBenhNhan, bn.sdt, bn.diaChi, bn.maBHYT, bs.maKhoa, kk.tenKhoa, bs.tenBacSi, lhk.ngayKham, lhk.gioKham, lhk.moTa
                     FROM benhnhan bn 
                     JOIN lichhenkham lhk ON bn.maBenhNhan = lhk.maBenhNhan
                     JOIN bacsi bs ON lhk.maBacSi = bs.maBacSi 
@@ -38,7 +38,7 @@
                             <p><strong>Bác sĩ khám:</strong><?= $row['tenBacSi']?></p>
                             <p><strong>Ngày khám: </strong><?= $row['ngayKham']?></p>
                             <p><strong>Giờ khám: </strong><?= $row['gioKham']?></p>
-                            <p><strong>Mô tả tình trạng sức khỏe:</strong><?= $row['moTaSucKhoe']?></p>
+                            <p><strong>Mô tả tình trạng sức khỏe:</strong><?= $row['moTa']?></p>
                         </div>
                     </div>
                 </div>
@@ -47,6 +47,7 @@
                     <a type="submit" class="btn btn-success" name="btnHoanThanhKham" onclick="window.location.href='index.php?quanli=tao-phieu-kham&idht=<?= $row['maBenhNhan'] ?>'">Hoàn Thành Khám</a>
                 </div>
                     <?php }?>
+
             </form>
         </div>
     </div>

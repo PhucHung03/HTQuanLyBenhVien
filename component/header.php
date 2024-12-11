@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,13 +29,13 @@
                                 <i class="fa fa-heart" style="color: #ffffff;"></i>	<span style="color: #ffffff;padding: 10px;">Cấp cứu (028) 456 7890</span>
                                 </button>
                             </li>
-                            <li><button href="tel:19002003" style="border-radius:20px;background-color: rgb(21, 176, 21); border: none;" >
-                                <i class="fa fa-calendar" style="color: #ffffff;"></i>	<span style="color: #ffffff;padding: 10px;">Đặt lịch khám</span>
-                                </button>
+                            <li><a href="index.php?url=dat-lich-kham" class="btn" style="border-radius:20px;background-color: rgb(21, 176, 21); border: none;" >
+                                <i  class="fa fa-calendar" style="color: #ffffff;"></i>	<span style="color: #ffffff;padding: 10px;">Đặt lịch khám</span>
+                                </a>
                             </li>
                             <li>
-                                <a href="">Đăng nhập</a><span style="color: #ffffff;"> / </span>
-                                <a href="">Đăng kí</a>
+                                <a href="index.php?url=dang-nhap">Đăng nhập</a><span style="color: #ffffff;"> / </span>
+                                <a href="index.php?url=dang-ki-tai-khoan">Đăng kí</a>
                             </li>
                         </ul>
                     </div>
@@ -55,7 +56,7 @@
                             <ul>
                                 <li><a href="index.php?url=trang-chu"><h5>TRANG CHỦ</h5></a></li>
                                 <li><a href="index.php?url=chuyen-khoa"><h5>CHUYÊN KHOA</h5></a></li>
-                                <li><a href=""><h5>BÁC SĨ</h5></a></li>
+                                <li><a href="index.php?url=bac-si"><h5>BÁC SĨ</h5></a></li>
                                 <li><a href=""><h5>DỊCH VỤ</h5></a>
                                     <ul class="dropdown">
                                         <li><a href="">Bảng giá dịch vụ</a></li>
@@ -64,7 +65,7 @@
                                         <li><a href="">Liên hệ với chúng tôi</a></li>
                                     </ul>
                                 </li>
-                                <li><a href=""><h5>THÀNH TỰU</h5></a></li>
+                                <li><a href="index.php?url=thanh-tuu"><h5>THÀNH TỰU</h5></a></li>
                                 <li><a href=""><h5>TIN TỨC</h5></a></li>
                                 <li><a href=""><h5>BỆNH NHÂN</h5></a>
                                     <ul class="dropdown">

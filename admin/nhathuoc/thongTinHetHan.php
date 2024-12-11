@@ -11,15 +11,17 @@
         height: 100vh;
         margin: 0;
         background-color: #f4f4f4;
+        margin-top:120px;
     }
 
     .container {
-        margin-top:20px;
+        margin-top:120px;
         width: 60%;
         background-color: #fff;
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
+        
     }
 
     .header {
@@ -76,30 +78,38 @@
     .ok-button:hover {
         background-color: #90caf9;
     }
+    #text{
+        border-radius:12px;
+    }
 </style>
 </head>
 <body>
 <div class="container">
-    <div class="header">Loại thuốc</div>
+    <div class="header">Báo Cáo Thuốc Sắp Hết Hạn</div>
+    <div class="date" style="text-align:center;">Ngày: <?php
+        echo  date("d/m/Y");
+        ?></div>
     
     <!-- <div class="info-box">
         <h2>Thông tin thuốc</h2>
-        <p><strong>Mã thuốc:</strong> MT0001</p>
-        <p><strong>Tên thuốc:</strong> Levothyroxine</p>
-        <p><strong>Số lượng tồn kho:</strong> 300 hộp</p>
-        <p><strong>Giá tiền:</strong> 75.000 VND</p>
-        <p><strong>Liều dùng:</strong> 1 lần/ ngày</p>
-        <p><strong>Hạn sử dụng:</strong> 08/2025</p>
-        <p><strong>Chi tiết:</strong> Levothyroxine là một loại hormone tổng hợp của tuyến giáp, được sử dụng để điều trị các bệnh liên quan đến suy giáp (tuyến giáp hoạt động kém).</p>
+        <p><strong>Mã thuốc:</strong>MT0001</p>
+        <p><strong>Tên thuốc:</strong>Levothyroxine</p>
+        <p><strong>Số lượng tồn kho:</strong>300 hộp</p>
+        <p><strong>Giá tiền:</strong>75.000 VND</p>
+        <p><strong>Ngày sản xuất:</strong>06/11/2021</p>
+        <p><strong>Hạn sử dụng:</strong>11/2024</p>
+        <p><strong>Ghi chú:</strong><br><textarea name="text" id="text" cols="60" rows="4"></textarea> </p>
     </div> -->
     <div class="info-box">
         <?php
-            $idsp=$_REQUEST['id'];
-            $p->xemthongtinthuoc("SELECT * FROM thuoc where maThuoc = '$idsp' limit 1");
+        $id=$_REQUEST['id'];
+            $p->thongTinHetHan("SELECT * FROM thuoc where maThuoc = '$id' limit 1");
         ?>
     </div>
+
     <div class="button-container">
-    <a href="index.php?quanli=xem-thuoc-ton-kho" style="color:white;text-decoration:none;"><button class="button back-button">Trở lại</button></a>
+        <a href="index.php?quanli=bao-cao-thuoc-het-han" style="text-decoration:none;color:white;"><button class="button back-button">Trở lại</button></a>
+        <button class="button ok-button">In báo cáo</button>
     </div>
 </div>
 </body>
