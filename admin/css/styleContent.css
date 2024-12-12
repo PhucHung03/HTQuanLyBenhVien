@@ -33,8 +33,6 @@
 .detailThanhToan .d-flex.justify-content-end {
     margin-top: 90px; /* Tùy chỉnh khoảng cách trên nút */
     margin-left: 150px;
-    
-    
 }
 /* Bác sĩ */
 /* Xem lịch hẹn */
@@ -98,7 +96,7 @@ strong{
     width: 270px;
     padding: 5px;
     height: 30px;
-    margin-left: 580px;
+    margin-left: 400px;
     border: 1px solid black;
     border-radius: 5px;
     outline: none;
@@ -115,7 +113,6 @@ strong{
     border: 0;
     background-color: transparent;
     margin-top: -3px;
-    
 }
 #table__danhsach{
     margin-top: 20px;
@@ -303,7 +300,6 @@ p>a{
     width: 250px;
     margin-left: 5px;
     height: 50px;
-    resize: none;
 }
 .taoPhieuKham #phieukham__diachi textarea::placeholder{
     font-size: 14px;
@@ -468,17 +464,8 @@ p>a{
     padding-bottom: 20px;
 }
 #title_header{
-    display: flex;
     font-size: 15px;
-    /* float: left; */
-    /* border: 1px solid black; */
-    width: 200px;
-}
-.nav__doanhthu{
-    display: flex;
-    /* border: 1px solid black; */
-    width: auto ;
-    margin-top: 20px;
+    float: left;
 }
 .thongKeDoanhThu  strong{
     font-size: 20px;
@@ -495,7 +482,6 @@ p>a{
     border-radius: 5px;
     outline: none;
     float: right;
-
 }
 #form__search::placeholder{
     font-size: 15px;
@@ -516,7 +502,7 @@ p>a{
     height: 20px;
 }
 #table__danhsach {
-    margin-top: 10px;
+    margin-top: 50px;
     width: 100%;
     font-family: Arial, sans-serif;
     padding-bottom: 30px;
@@ -528,8 +514,6 @@ p>a{
     font-weight: bold;
     padding: 10px 0;
     text-align: center;
-   
-    width: 100%;
     border-radius: 8px 8px 0 0;
 }
 
@@ -714,9 +698,7 @@ p>a{
     width: 100%;
 }
 .medicine-entry{
-    width: 740px;
-    
-    margin-left: -40px;
+    width: 700px;
 }
 .suggestions {
     width: 220px;
@@ -770,7 +752,7 @@ p>a{
     width: 300px;
 }
 #message-badge {
-    display: none; /* Mặc định không hiển thị */
+    display: none; 
     width: 5px;
     height: 5px;
     padding: 5px;   
@@ -779,8 +761,8 @@ p>a{
     border-radius: 50%;
     background-color: red;
     position: absolute;
-    top: 5px; /* Điều chỉnh vị trí */
-    right: 5px; /* Điều chỉnh vị trí */
+    top: 5px; 
+    right: 5px; 
 }
 #btn__reset{
     border-radius: 5px;

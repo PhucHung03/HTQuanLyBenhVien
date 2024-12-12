@@ -7,7 +7,7 @@ class login {
 
     public function connectlogin() {
         // Sử dụng `mysqli` để kết nối
-        $this->con = new mysqli("localhost", "usertmdt", "passtmdt", "qlbenhvien");
+        $this->con = new mysqli("localhost", "quanlibenhvien", "1234", "qlbenhvien1");
         
         // Kiểm tra lỗi kết nối
         if ($this->con->connect_error) {
@@ -45,9 +45,9 @@ class login {
             
             // Chuyển hướng dựa trên quyền
             if ($row['quyen'] == 1) {
-                header('Location: ../QLBENHVIEN/admin'); // Trang quản trị viên
+                header('Location: ../QLBENHVIEN/admin/'); // Trang quản trị viên
             }elseif ($row['quyen'] == 0) {
-                header('Location: index.php?url=dat-lich-kham'); // Trang người dùng
+                header('Location:/QLBENHVIEN/public/user/datLichKham.php'); // Trang người dùng
             }
         } else {
             return 0; // Không tìm thấy tài khoản

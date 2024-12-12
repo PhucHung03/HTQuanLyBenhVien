@@ -1,5 +1,7 @@
+
 <?php
 session_start();
+
 require('component_admin/header.php');
 require('component_admin/sidebar.php');
 require('component_admin/topbar.php');
@@ -59,15 +61,21 @@ if (!isset($_GET['quanli'])) {
         case 'bao-cao-thuoc-het-han':
             require_once "nhathuoc/baoCaoHetHan.php";
             break;
-        case 'don-thuoc':
-            require_once "dsbn/dt.php";
+        case 'thong-tin-het-han':
+            require_once "nhathuoc/thongTinHetHan.php";
             break;
-        case 'tra-cuu-don-thuoc':
-            require_once "dsbn/tkdt.php";
-            break;
-        case 'chi-tiet-don-thuoc':
-            require_once "dsbn/xctdt.php";
-            break;
+            case 'don-thuoc':
+                require_once "dsbn/dt.php";
+                break;
+            case 'add-nv':
+                require_once "dsbn/add_nv.php";
+                break;
+            case 'tra-cuu-don-thuoc':
+                require_once "dsbn/tkdt.php";
+                break;
+            case 'chi-tiet-don-thuoc':
+                require_once "dsbn/xctdt.php";
+                break;
             //thu ngân
         case 'thanh-toan':
             require_once "thungan/thuTienVienPhi.php";
@@ -78,8 +86,11 @@ if (!isset($_GET['quanli'])) {
         case 'thong-ke-doanh-thu':
             require_once "thungan/thongKeDoanhThu.php";
             break;
-        case 'hinh-thuc-thanh-toan':
+        case 'thong-tin-thanh-toan':
             require_once "thungan/thanhtoan.php";
+            break;
+        case 'hoa-don-thanh-toan':
+            require_once "thungan/hoaDonThanhToan.php";
             break;
             // quản lý
         case 'quan-ly-lich-lam-viec':
@@ -88,18 +99,36 @@ if (!isset($_GET['quanli'])) {
         case 'quan-ly-lich-kham':
             require_once "tiepTan/QLLichKham.php";
             break;
-        case 'danh-sach-nhan-vien':
-            require_once "dsbn/qlnv.php";
-            break;
-        case 'chi-tiet-nhan-vien':
-            require_once "dsbn/xdsnv.php";
-            break;
+            case 'danh-sach-nhan-vien':
+                require_once "dsbn/qlnv.php";
+                break;
+            case 'edit-nv':
+                require_once "dsbn/edit_nv.php";
+                break;
+            case 'edit-dt':
+                require_once "dsbn/edit_don_thuoc.php";
+                break;
+            case 'chi-tiet-nhan-vien':
+                require_once "dsbn/xdsnv.php";
+                break;
             // lich lam viec
         case 'xem-lich-lam-viec':
             require_once "lichLamViec/xemlichlamviec.php";
             break;
         case 'detail-lich-lam-viec':
             require_once "lichLamViec/giaodienxemlich.php";
+            break;
+            // tiep tan 
+        case 'edit-tt':
+            require_once "tieptan/edittn.php";
+            break;
+
+        case 'ct-tt':
+            require_once "tieptan/chitiet.php";
+            break;
+
+        case 'lv-nv':
+            require_once "quanLy/edit.php";
             break;
     }
 }

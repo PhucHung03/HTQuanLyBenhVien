@@ -1,7 +1,7 @@
 <?php        
         class clsbacsi{
             public function connect() {
-                $con = new mysqli("localhost", "root", "", "qlbenhvien");
+                $con = new mysqli("localhost", "root", "", "qlbenhvien1");
 
                 if ($con->connect_error) {
                     die("Không Kết Nối Được: " . $con->connect_error);

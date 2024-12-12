@@ -34,8 +34,8 @@ $p = new quantri();
 
                     <div id="content__thongke">
                     <?php
-                        // Lọc dữ liệu theo ngày và mã hóa đơn
-                        $query = "SELECT maHoaDon, maBenhNhan, tienDichVu, tienThuoc, ngayGiaoDich FROM hoadon WHERE 1=1";
+                        // Lọc dữ liệu theo ngày và mã hóa đơn, và chỉ lấy hóa đơn có trangThai = 1
+                        $query = "SELECT maHoaDon, maBenhNhan, tienDichVu, tienThuoc, ngayGiaoDich FROM hoadon WHERE trangThai = 1";  // Thêm điều kiện trangThai = 1
 
                         // Lọc theo mã hóa đơn
                         if (isset($_POST['timkiem']) && !empty($_POST['search'])) {
@@ -77,13 +77,13 @@ $p = new quantri();
         <?php
                 // Tính tổng doanh thu sau khi có tìm kiếm hoặc chọn ngày
                 if (isset($_POST['timkiem']) && !empty($_POST['search'])) {
-                    $p->tinhTongTien("SELECT * FROM hoadon WHERE maHoaDon LIKE '%$search%'");
+                    $p->tinhTongTien("SELECT * FROM hoadon WHERE trangThai = 1 AND maHoaDon LIKE '%$search%'");
                 } elseif (isset($_POST['ngayGiaoDich']) && !empty($_POST['ngayGiaoDich'])) {
                     $ngayGiaoDich = $_POST['ngayGiaoDich'];
-                    $p->tinhTongTien("SELECT * FROM hoadon WHERE ngayGiaoDich = '$ngayGiaoDich'");
+                    $p->tinhTongTien("SELECT * FROM hoadon WHERE trangThai = 1 AND ngayGiaoDich = '$ngayGiaoDich'");
                 } else {
-                    $p->tinhTongTien("SELECT * FROM hoadon");
+                    $p->tinhTongTien("SELECT * FROM hoadon WHERE trangThai = 1");
                 }
                 ?>
     </section>
-</div>
+</div>    

@@ -10,6 +10,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="index.php?quanli=quan-ly-lich-lam-viec" class="dropdown-item">Quản lý lịch làm việc</a>
                             <a href="index.php?quanli=danh-sach-nhan-vien" class="dropdown-item">Danh sách nhân viên</a>
+                            <a href="index.php?quanli=add-nv" class="dropdown-item">Thêm nhân viên</a>
                         </div>
                     </div>
 

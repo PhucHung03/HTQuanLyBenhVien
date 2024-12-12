@@ -11,7 +11,7 @@
             <p class="thongso__name">Doanh thu</p>
             <p class="thongso__number">
                     <?php
-                        $p->doanhthuDasboard("SELECT * FROM hoadon WHERE 1=1");
+                        $p->doanhthuDasboard("SELECT * FROM hoadon WHERE trangThai=1");
                     ?>
             </p>
             </div>

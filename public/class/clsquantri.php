@@ -5,7 +5,7 @@ class quantri
 
     public function connect() {
         // Kết nối cơ sở dữ liệu bằng mysqli
-        $this->con = new mysqli("localhost", "usertmdt", "passtmdt", "qlbenhvien");
+        $this->con = new mysqli("localhost", "quanlibenhvien", "1234", "qlbenhvien1");
 
         // Kiểm tra lỗi kết nối
         if ($this->con->connect_error) {

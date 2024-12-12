@@ -1,5 +1,5 @@
 <?php
-    error_reporting(1);
+    // error_reporting(1);
     include("./xuly/clsquantri.php");
     $p = new quantri();
     $maBenhNhan = $_REQUEST["idht"];
@@ -79,125 +79,146 @@
             </form>
 
             <?php
-    $tenBacSi = $_SESSION['hoTen']; // Tên bác sĩ từ session
-    if (isset($_POST['btn__taophieukham']) && $_POST['btn__taophieukham'] == 'Tạo Phiếu Khám') {
-        $maBenhNhan = trim($_REQUEST['txtmabenhnhan']); 
-        $tenBenhNhan = $_REQUEST['txttenbenhnhan'];
-        $ngaySinh = $_REQUEST['txtngaysinh'];
-        $gioiTinh = isset($_POST['gioitinh']) ? $_POST['gioitinh'] : 'Nam';
-        $sdt = $_REQUEST['txtsdt'];
-        $diaChi = $_REQUEST['txtdiachi'];
-        $tinhTrangBenh = trim($_REQUEST['txttinhtrangbenh']);
-        $chanDoan = $_REQUEST['txtchandoan'];
-        $keHoachDieuTri = $_REQUEST['txtkehoachdieutri'];
-        $ghiChu = $_REQUEST['txtghichu'];
+                     // Lấy số điện thoại từ session
+                    $sdtBacSi = $_SESSION['user']; 
 
-        // Lấy thông tin thuốc
-        $tenThuoc = isset($_POST['tenThuoc']) ? $_POST['tenThuoc'] : [];
-        $soLuong = isset($_POST['soluong']) ? $_POST['soluong'] : [];
-        $lieuDung = isset($_POST['lieudung']) ? $_POST['lieudung'] : [];
+                    // Kết nối database
+                    $conn = $p->connect();
 
-        // Kiểm tra các trường bắt buộc
-        if (empty($maBenhNhan)) {
-            echo '<script>alert("Mã bệnh nhân không được để trống!");</script>';
-            exit;
-        }
-        if (empty($tinhTrangBenh)) {
-            echo '<script>alert("Tình trạng bệnh không được để trống!");</script>';
-            exit;
-        }
-        if (empty($chanDoan)) {
-            echo '<script>alert("Chẩn đoán không được để trống!");</script>';
-            exit;
-        }
-        if (empty($keHoachDieuTri)) {
-            echo '<script>alert("Kế hoạch điều trị không được để trống!");</script>';
-            exit;
-        }
-        if (empty($tenThuoc) || count($tenThuoc) === 0) {
-            echo '<script>alert("Đơn thuốc không được để trống!");</script>';
-            exit;
-        }
+                    // Truy vấn bảng bacsi để lấy maBacSi từ sdt
+                    $queryBacSi = "SELECT maBacSi FROM bacsi WHERE sdt = '$sdtBacSi'";
+                    $resultBacSi = mysqli_query($conn, $queryBacSi);
 
-        $ngayTao = date('Y-m-d'); 
+                    // Kiểm tra nếu có kết quả và lấy maBacSi
+                    if ($resultBacSi && mysqli_num_rows($resultBacSi) > 0) {
+                        // Lấy maBacSi từ kết quả truy vấn
+                        $rowBacSi = mysqli_fetch_assoc($resultBacSi);
+                        $maBacSi = $rowBacSi['maBacSi'];  // Đảm bảo lấy giá trị đúng
+                    } else {
+                        // Nếu không tìm thấy bác sĩ, xử lý lỗi
+                        echo '<script>alert("Không tìm thấy bác sĩ tương ứng với số điện thoại!");</script>';
+                        exit;
+                    }
+                    if (isset($_POST['btn__taophieukham']) && $_POST['btn__taophieukham'] == 'Tạo Phiếu Khám') {
+                        $maBenhNhan = trim($_REQUEST['txtmabenhnhan']); 
+                        $tenBenhNhan = $_REQUEST['txttenbenhnhan'];
+                        $ngaySinh = $_REQUEST['txtngaysinh'];
+                        $gioiTinh = isset($_POST['gioitinh']) ? $_POST['gioitinh'] : 'Nam';
+                        $sdt = $_REQUEST['txtsdt'];
+                        $diaChi = $_REQUEST['txtdiachi'];
+                        $tinhTrangBenh = trim($_REQUEST['txttinhtrangbenh']);
+                        $chanDoan = $_REQUEST['txtchandoan'];
+                        $keHoachDieuTri = $_REQUEST['txtkehoachdieutri'];
+                        $ghiChu = $_REQUEST['txtghichu'];
 
-        // Kết nối database
-        $conn = $p->connect();
+                        // Lấy thông tin thuốc
+                        $tenThuoc = isset($_POST['tenThuoc']) ? $_POST['tenThuoc'] : [];
+                        $soLuong = isset($_POST['soluong']) ? $_POST['soluong'] : [];
+                        $lieuDung = isset($_POST['lieudung']) ? $_POST['lieudung'] : [];
 
-        // Kiểm tra trùng lặp tình trạng bệnh và ngày tạo
-        $checkDuplicateQuery = "SELECT * FROM phieukham WHERE tinhTrangBenh = '$tinhTrangBenh' AND ngayTao = '$ngayTao'";
-        $duplicateResult = mysqli_query($conn, $checkDuplicateQuery);
-        if ($duplicateResult && mysqli_num_rows($duplicateResult) > 0) {
-            echo '<script>alert("Phiếu khám với tình trạng bệnh tương tự và ngày tạo đã tồn tại!");</script>';
-            exit;
-        }
+                        
 
-        // Tạo mã đơn thuốc
-        $maDonThuoc = $p->generateUniqueMaDonThuoc(); 
-        $danhSachThuoc = [];
-        $tongTien = 0;
+                        // Kiểm tra các trường bắt buộc
+                        if (empty($maBenhNhan)) {
+                            echo '<script>alert("Mã bệnh nhân không được để trống!");</script>';
+                            exit;
+                        }
+                        if (empty($tinhTrangBenh)) {
+                            echo '<script>alert("Tình trạng bệnh không được để trống!");</script>';
+                            exit;
+                        }
+                        if (empty($chanDoan)) {
+                            echo '<script>alert("Chẩn đoán không được để trống!");</script>';
+                            exit;
+                        }
+                        if (empty($keHoachDieuTri)) {
+                            echo '<script>alert("Kế hoạch điều trị không được để trống!");</script>';
+                            exit;
+                        }
+                        if (empty($tenThuoc) || count($tenThuoc) === 0) {
+                            echo '<script>alert("Đơn thuốc không được để trống!");</script>';
+                            exit;
+                        }
 
-        foreach ($tenThuoc as $index => $thuoc) {
-            $soLuongThuoc = $soLuong[$index];
-            $thuocQuery = "SELECT giaTien FROM thuoc WHERE tenThuoc = '$thuoc'";
-            $thuocResult = mysqli_query($conn, $thuocQuery);
+                        $ngayTao = date('Y-m-d'); 
 
-            if ($thuocResult && $row = mysqli_fetch_assoc($thuocResult)) {
-                $giaTien = $row['giaTien'];
-                $tongTien += $giaTien * $soLuongThuoc;
-                $danhSachThuoc[] = "$thuoc, $soLuongThuoc, $lieuDung[$index]";
-            } else {
-                echo '<script>alert("Thuốc ' . htmlspecialchars($thuoc) . ' không tồn tại trong danh sách thuốc!");</script>';
-                exit;
-            }
-        }
+                        // Kết nối database
+                        $conn = $p->connect();
 
-        $danhSachThuocStr = implode('; ', $danhSachThuoc);
+                        // Kiểm tra trùng lặp tình trạng bệnh và ngày tạo
+                        $checkDuplicateQuery = "SELECT * FROM phieukham WHERE tinhTrangBenh = '$tinhTrangBenh' AND ngayTao = '$ngayTao'";
+                        $duplicateResult = mysqli_query($conn, $checkDuplicateQuery);
+                        if ($duplicateResult && mysqli_num_rows($duplicateResult) > 0) {
+                            echo '<script>alert("Phiếu khám với tình trạng bệnh tương tự và ngày tạo đã tồn tại!");</script>';
+                            exit;
+                        }
 
-        // Thêm đơn thuốc vào bảng donthuoc
-        $queryDonThuoc = "INSERT INTO donthuoc(maDonThuoc, maBenhNhan, danhSachThuoc) 
-                          VALUES ('$maDonThuoc', '$maBenhNhan', '$danhSachThuocStr')";
-        if ($p->themxoasua($queryDonThuoc) != 1) {
-            echo '<script>alert("Có lỗi khi tạo đơn thuốc!");</script>';
-            exit;
-        }
+                        // Tạo mã đơn thuốc
+                        $maDonThuoc = $p->generateUniqueMaDonThuoc(); 
+                        $danhSachThuoc = [];
+                        $tongTien = 0;
 
-        // Tạo phiếu khám và gán mã đơn thuốc
-        $maPhieuKham = 'PK' . rand(100000, 999999);
-        $queryPhieuKham = "INSERT INTO phieukham(maPhieuKham, maBenhNhan, tinhTrangBenh, chanDoan, keHoachDieuTri, maDonThuoc, ghiChu, tenBacSi, ngayTao) 
-                           VALUES ('$maPhieuKham', '$maBenhNhan', '$tinhTrangBenh', '$chanDoan', '$keHoachDieuTri', '$maDonThuoc', '$ghiChu', '$tenBacSi', '$ngayTao')";
+                        foreach ($tenThuoc as $index => $thuoc) {
+                            $soLuongThuoc = $soLuong[$index];
+                            $thuocQuery = "SELECT giaTien FROM thuoc WHERE tenThuoc = '$thuoc'";
+                            $thuocResult = mysqli_query($conn, $thuocQuery);
 
-        if ($p->themxoasua($queryPhieuKham) == 1) {
-            // Cập nhật mã phiếu khám vào bảng bệnh nhân
-            $updateQuery = "UPDATE benhnhan SET maPhieuKham = '$maPhieuKham' WHERE maBenhNhan = '$maBenhNhan'";
-            if (!$p->themxoasua($updateQuery)) {
-                echo '<script>alert("Có lỗi khi cập nhật mã phiếu khám vào bệnh nhân!");</script>';
-                exit;
-            }
+                            if ($thuocResult && $row = mysqli_fetch_assoc($thuocResult)) {
+                                $giaTien = $row['giaTien'];
+                                $tongTien += $giaTien * $soLuongThuoc;
+                                $danhSachThuoc[] = "$thuoc, $soLuongThuoc, $lieuDung[$index]";
+                            } else {
+                                echo '<script>alert("Thuốc ' . htmlspecialchars($thuoc) . ' không tồn tại trong danh sách thuốc!");</script>';
+                                exit;
+                            }
+                        }
 
-            // Tạo hóa đơn
-            $maHoaDon = 'HD' . rand(100000, 999999);
-            $queryHoaDon = "INSERT INTO hoadon(maHoaDon, maBenhNhan, tienThuoc) 
-                            VALUES ('$maHoaDon', '$maBenhNhan', '$tongTien')";
-            
-            if ($p->themxoasua($queryHoaDon) == 1) {
-                // Sau khi tạo hóa đơn thành công, lưu vào bảng hoadonthuoc
-                $queryHoaDonThuoc = "INSERT INTO hoadonthuoc(maHoaDon, maDonThuoc, maBenhNhan, tongTien) 
-                                     VALUES ('$maHoaDon', '$maDonThuoc', '$maBenhNhan', '$tongTien')";
-                
-                if ($p->themxoasua($queryHoaDonThuoc) == 1) {
-                    echo '<script>alert("Tạo phiếu khám và đơn thuốc thành công!");</script>';
-                } else {
-                    echo '<script>alert("Có lỗi khi lưu vào bảng hóa đơn thuốc!");</script>';
-                }
-            } else {
-                echo '<script>alert("Có lỗi khi tạo hóa đơn!");</script>';
-            }
-        } else {
-            echo '<script>alert("Có lỗi khi tạo phiếu khám. Vui lòng thử lại!");</script>';
-        }
-    }
-?>
+                        $danhSachThuocStr = implode('; ', $danhSachThuoc);
+
+                        // Thêm đơn thuốc vào bảng donthuoc
+                        $queryDonThuoc = "INSERT INTO donthuoc(maDonThuoc, maBenhNhan, danhSachThuoc) 
+                                        VALUES ('$maDonThuoc', '$maBenhNhan', '$danhSachThuocStr')";
+                        if ($p->themxoasua($queryDonThuoc) != 1) {
+                            echo '<script>alert("Có lỗi khi tạo đơn thuốc!");</script>';
+                            exit;
+                        }
+
+                        // Tạo phiếu khám và gán mã đơn thuốc
+                        $maPhieuKham = 'PK' . rand(100000, 999999);
+                        $queryPhieuKham = "INSERT INTO phieukham(maPhieuKham, maBenhNhan,maBacSi, tinhTrangBenh, chanDoan, keHoachDieuTri, maDonThuoc, ghiChu, ngayTao) 
+                                        VALUES ('$maPhieuKham', '$maBenhNhan', '$maBacSi','$tinhTrangBenh', '$chanDoan', '$keHoachDieuTri', '$maDonThuoc', '$ghiChu', '$ngayTao')";
+
+                        if ($p->themxoasua($queryPhieuKham) == 1) {
+                            // Cập nhật mã phiếu khám vào bảng bệnh nhân
+                            $updateQuery = "UPDATE benhnhan SET maPhieuKham = '$maPhieuKham' WHERE maBenhNhan = '$maBenhNhan'";
+                            if (!$p->themxoasua($updateQuery)) {
+                                echo '<script>alert("Có lỗi khi cập nhật mã phiếu khám vào bệnh nhân!");</script>';
+                                exit;
+                            }
+
+                            // Tạo hóa đơn
+                            $maHoaDon = 'HD' . rand(100000, 999999);
+                            $queryHoaDon = "INSERT INTO hoadon(maHoaDon, maBenhNhan, tienThuoc) 
+                                            VALUES ('$maHoaDon', '$maBenhNhan', '$tongTien')";
+                            
+                            if ($p->themxoasua($queryHoaDon) == 1) {
+                                // Sau khi tạo hóa đơn thành công, lưu vào bảng hoadonthuoc
+                                $queryHoaDonThuoc = "INSERT INTO hoadonthuoc(maHoaDon, maDonThuoc, maBenhNhan, tongTien) 
+                                                    VALUES ('$maHoaDon', '$maDonThuoc', '$maBenhNhan', '$tongTien')";
+                                
+                                if ($p->themxoasua($queryHoaDonThuoc) == 1) {
+                                    echo '<script>alert("Tạo phiếu khám và đơn thuốc thành công!");</script>';
+                                } else {
+                                    echo '<script>alert("Có lỗi khi lưu vào bảng hóa đơn thuốc!");</script>';
+                                }
+                            } else {
+                                echo '<script>alert("Có lỗi khi tạo hóa đơn!");</script>';
+                            }
+                        } else {
+                            echo '<script>alert("Có lỗi khi tạo phiếu khám. Vui lòng thử lại!");</script>';
+                        }
+                    }
+                ?>
 
 
 
@@ -255,7 +276,7 @@
 
                 // Gửi yêu cầu AJAX kiểm tra mã bệnh nhân
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "../xuly/check_patient.php", true);
+                xhr.open("POST", "./xuly/check_patient.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == 4 && xhr.status == 200) {

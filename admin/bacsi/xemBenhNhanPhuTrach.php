@@ -11,13 +11,32 @@ $p = new quantri();
                 <div>
                     <!-- Hiển thị tổng số bệnh nhân phụ trách -->
                     <?php
-                    // Lấy tên bác sĩ từ session
-                    $tenBacSi = isset($_SESSION['hoTen']) ? $_SESSION['hoTen'] : '';
+                    // Lấy số điện thoại từ session
+                    $sdtBacSi = isset($_SESSION['user']) ? $_SESSION['user'] : '';
 
-                    if (empty($tenBacSi)) {
+                    if (empty($sdtBacSi)) {
                         echo "Bạn chưa đăng nhập.";
                         exit;
                     }
+
+                    // Kết nối cơ sở dữ liệu
+                    $conn = $p->connect();
+
+                    // Truy vấn bảng bacsi để lấy maBacSi từ sdt
+                    $queryBacSi = "SELECT maBacSi FROM bacsi WHERE sdt = '$sdtBacSi'";
+                    $resultBacSi = mysqli_query($conn, $queryBacSi);
+
+                    if ($resultBacSi && mysqli_num_rows($resultBacSi) > 0) {
+                        // Lấy maBacSi từ kết quả truy vấn
+                        $rowBacSi = mysqli_fetch_assoc($resultBacSi);
+                        $maBacSi = $rowBacSi['maBacSi'];  // Đảm bảo lấy giá trị đúng
+                    } else {
+                        echo "Không tìm thấy bác sĩ tương ứng với số điện thoại!";
+                        exit;
+                    }
+
+                    // Đóng kết nối
+                    mysqli_close($conn);
                     ?>
                 </div>
                 <div>
@@ -52,7 +71,7 @@ $p = new quantri();
                     $query = "SELECT DISTINCT benhnhan.maBenhNhan, benhnhan.tenBenhNhan, benhnhan.namSinh, benhnhan.sdt 
                               FROM benhnhan 
                               JOIN phieukham ON benhnhan.maBenhNhan = phieukham.maBenhNhan
-                              WHERE phieukham.tenBacSi = '$tenBacSi'";
+                              WHERE phieukham.maBacSi = '$maBacSi'";
 
                     // Kiểm tra điều kiện tìm kiếm
                     if (isset($_POST['timkiem']) && !empty(trim($_POST['search']))) {
@@ -76,7 +95,7 @@ $p = new quantri();
                     $countQuery = "SELECT COUNT(DISTINCT benhnhan.maBenhNhan) AS totalPatients
                                    FROM benhnhan 
                                    JOIN phieukham ON benhnhan.maBenhNhan = phieukham.maBenhNhan
-                                   WHERE phieukham.tenBacSi = '$tenBacSi'";
+                                   WHERE phieukham.maBacSi = '$maBacSi'";
                     $link = $p->connect();
                     $result = mysqli_query($link, $countQuery);
                     $row = mysqli_fetch_assoc($result);
@@ -88,4 +107,4 @@ $p = new quantri();
             </div>
         </div>
     </section>
-</div>  
+</div>    

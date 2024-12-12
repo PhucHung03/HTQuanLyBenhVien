@@ -52,7 +52,7 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="../index.php?url=dang-xuat" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                 document.getElementById("message-icon").addEventListener("click", hideMessageBadge);
 
                 // Gọi hàm hiển thị tin nhắn mỗi 10 giây
-                setInterval(displayRandomMessage, 30000);
+                setInterval(displayRandomMessage, 60000);
 
                 // Hiển thị tin nhắn đầu tiên ngay khi tải trang
                 displayRandomMessage();

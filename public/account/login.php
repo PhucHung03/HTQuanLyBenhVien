@@ -114,7 +114,7 @@
                 </div>
             </form>
             <div class="footer-links mt-3">
-                <a href="forgotpass.php">Quên mật khẩu?</a> | <a href="index.php?url=dang-ki-tai-khoan">Đăng ký tài khoản</a>
+                <a href="/QLBENHVIEN/public/account/forgotpass.php">Quên mật khẩu?</a> | <a href="/QLBENHVIEN/public/account/register.php">Đăng ký tài khoản</a>
             </div>
         </div>
      </div>
