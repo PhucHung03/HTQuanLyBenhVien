@@ -42,8 +42,23 @@ if (!isset($_GET['url'])) {
             require_once "public/bacsi.php";
             break;
         case 'quy-trinh-xuat-vien':
-                require_once "public/";
-                break;
+            require_once "public/view/xuatvien.php";
+            break;
+        case 'quy-trinh-nhap-vien':
+            require_once "public/view/nhapvien.php";
+            break;
+        case 'trang-lien-lac':
+            require_once "public/view/tranglienlac.php";
+            break;
+        case 'tra-cuu-thong-tin':
+            require_once "public/view/tracuubenhnhan.php";
+            break;
+        case 'bang-gia-dich-vu':
+            require_once "public/view/banggiadichvu.php";
+            break;
+        case 'tin-tuc':
+            require_once "public/view/tin-tuc.php";
+            break;
     }
 }
 

@@ -45,9 +45,9 @@ class login {
             
             // Chuyển hướng dựa trên quyền
             if ($row['quyen'] == 1) {
-                header('Location: ../QLBENHVIEN/admin'); // Trang quản trị viên
+                header('Location: ../QLBENHVIEN/admin/'); // Trang quản trị viên
             }elseif ($row['quyen'] == 0) {
-                header('Location: index.php?url=dat-lich-kham'); // Trang người dùng
+                header('Location:/QLBENHVIEN/public/user/datLichKham.php'); // Trang người dùng
             }
         } else {
             return 0; // Không tìm thấy tài khoản

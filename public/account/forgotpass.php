@@ -93,7 +93,7 @@
             <div id="alert-fail" class="alert alert-danger">Thông tin không hợp lệ. Vui lòng kiểm tra lại!</div>
         </form>
         <div class="footer-links mt-3">
-            <a href="login.php">Quay lại Đăng Nhập</a>
+            <a href="/HTQuanLyBenhVien-master/index.php?url=dang-nhap">Quay lại Đăng Nhập</a>
         </div>
     </div>
 
