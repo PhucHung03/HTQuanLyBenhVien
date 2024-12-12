@@ -1,3 +1,6 @@
+<?php 
+error_reporting(1);
+?>
 <div class="xemLichHen">
     <div class="container">
         <div class="bg-light m-4">

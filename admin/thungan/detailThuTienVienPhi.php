@@ -35,57 +35,76 @@ if (isset($_POST['timKiemThanhToan'])) {
                 <div class="bg-light h-100 p-5">
                     <h3>THÔNG TIN THANH TOÁN</h3>
                     <form action="" method="post">
-                            <div class="info">
-                                <p><strong>Tên Bệnh Nhân: </strong><?=$row['tenBenhNhan'] ?></p>
-                                <p><strong>Mã khám bệnh: </strong> <?=$row['maBenhNhan']  ?></p>
-                                <p><strong>Số điện thoại: </strong> <?=$row['sdt'] ?></p>
-                                <p><strong>Địa chỉ: </strong><?= $row['diaChi']  ?></p>
-                                <p><strong>Mã BHYT: </strong> <?= $row['maBHYT']  ?></p>
-                                <p><strong>Ngày khám bệnh: </strong><?= $row['ngayKham']  ?></p>
-                            </div>
-                            <div class="table-container">
-                        <div class="info_service">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>STT</th>
-                                                <th>Mã dịch vụ</th>
-                                                <th>Dịch vụ khám</th>
-                                                <th>Tổng tiền</th>
-                                            </tr>
-                                        </thead>
-                                        <?php 
-                                            $sql_str = "select dichvu_benhnhan.maDichVu,tenDichVu, donGia from dichVu,dichvu_benhnhan 
-                                            where dichvu.maDichVu = dichvu_benhnhan.maDichVu and maBenhNhan='$keyword';";
-                                            $res = mysqli_query($conn, $sql_str);
-                                            $stt = 0;
-                                            $tongtien = 0;
-                                            while ($item = mysqli_fetch_assoc($res)) {
-                                                $tongTien += $item['donGia'];
-                                                $_SESSION['tongtien']=$tongTien;
-                                          ?> 
-                                          <tbody>
-                                              <tr>
-                                                  <td><?= ++$stt ?></td>
-                                                  <td><?= $item['maDichVu'] ?></td>
-                                                  <td><?=$item['tenDichVu'] ?></td>
-                                                  <td><?= number_format($item['donGia'], 0, ',', '.'); ?> VND</td>
-                                              </tr>
-                                          </tbody>
-                                          <?php }?>
-                                    </table>
-                                </div>
+                        <div class="info">
+                            <p><strong>Tên Bệnh Nhân: </strong><?=$row['tenBenhNhan'] ?></p>
+                            <p><strong>Mã khám bệnh: </strong> <?=$row['maBenhNhan']  ?></p>
+                            <p><strong>Số điện thoại: </strong> <?=$row['sdt'] ?></p>
+                            <p><strong>Địa chỉ: </strong><?= $row['diaChi']  ?></p>
+                            <p><strong>Mã BHYT: </strong> <?= $row['maBHYT']  ?></p>
+                            <p><strong>Ngày khám bệnh: </strong><?= $row['ngayKham']  ?></p>
                         </div>
+
+                        <!-- Kiểm tra và hiển thị thông tin dịch vụ -->
+                        <div class="table-container">
+                            <div class="info_service">
+                                <?php 
+                                $sql_str = "SELECT dichvu_benhnhan.maDichVu, tenDichVu, donGia 
+                                            FROM dichVu, dichvu_benhnhan 
+                                            WHERE dichvu.maDichVu = dichvu_benhnhan.maDichVu 
+                                            AND maBenhNhan='$keyword'";
+                                $res = mysqli_query($conn, $sql_str);
+                                $stt = 0;
+                                $tongTien = 0;
+
+                                // Kiểm tra nếu không có dịch vụ
+                                if (mysqli_num_rows($res) == 0) {
+                                    echo "<p style='color: red;'>Không có thông tin thanh toán</p>";
+                                } else {
+                                ?>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Mã dịch vụ</th>
+                                            <th>Dịch vụ khám</th>
+                                            <th>Tổng tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php 
+                                    while ($item = mysqli_fetch_assoc($res)) {
+                                        $tongTien += $item['donGia'];
+                                        $_SESSION['tongtien'] = $tongTien;
+                                    ?>
+                                        <tr>
+                                            <td><?= ++$stt ?></td>
+                                            <td><?= $item['maDichVu'] ?></td>
+                                            <td><?= $item['tenDichVu'] ?></td>
+                                            <td><?= number_format($item['donGia'], 0, ',', '.'); ?> VND</td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <!-- Hiển thị tổng tiền nếu có dịch vụ -->
+                        <?php if ($tongTien > 0) { ?>
                         <div class="sumCost">
                             <h5>Thành tiền: <?= number_format($tongTien, 0, ',', '.'); ?> VND</h5>
                         </div>
-                    <div class="d-flex justify-content-end">
-                        <button type="reset" class="btn btn-danger me-2" name="btnHuy" onclick="window.location.href='index.php?quanli=thanh-toan'">Hủy</button>
-                        <a href="index.php?quanli=thong-tin-thanh-toan&maLichHen=<?=$row['maLichHen'] ?>" class="btn btn-success me-2" name="btnThanhToan">Thanh toán</a>
-                    </div>
+                        <?php } ?>
 
+                        <div class="d-flex justify-content-end">
+                            <button type="reset" class="btn btn-danger me-2" name="btnHuy" onclick="window.location.href='index.php?quanli=thanh-toan'">Hủy</button>
+                            <?php if ($tongTien > 0) { ?>
+                            <a href="index.php?quanli=thong-tin-thanh-toan&maLichHen=<?=$row['maLichHen'] ?>" class="btn btn-success me-2" name="btnThanhToan">Thanh toán</a>
+                            <?php } ?>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+</div>

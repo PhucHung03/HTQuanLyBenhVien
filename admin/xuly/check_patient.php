@@ -1,5 +1,5 @@
 <?php
-include("../xuly/clsquantri.php");
+include("clsbenhvien.php");
 $p = new quantri();
 
 if (isset($_POST['maBenhNhan'])) {

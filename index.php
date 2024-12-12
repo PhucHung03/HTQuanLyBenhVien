@@ -41,6 +41,9 @@ if (!isset($_GET['url'])) {
         case 'bac-si':
             require_once "public/bacsi.php";
             break;
+        case 'quy-trinh-xuat-vien':
+                require_once "public/";
+                break;
     }
 }
 

@@ -19,7 +19,7 @@ if (isset($_POST['inHoaDon'])) {
     if (mysqli_query($conn, $sql_str)) {
         echo "<script>
         alert('Thanh toán thành công !');
-        window.location= index.php?quanli=hoa-don-thanh-toan;
+        window.location.href='index.php?quanli=hoa-don-thanh-toan';
     </script>";
     }else{
         echo "<script>
