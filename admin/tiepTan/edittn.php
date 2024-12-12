@@ -21,6 +21,17 @@ if ($maLichHen) {
     }
 }
 
+if(isset($_POST['update'])){
+    $maBenhNhan = $_POST['maBenhNhan'];
+    $maLichHen = $_POST['maLichHen'];
+    $dichVuKham = $_POST['dichVuKham'];
+
+    $sql_dichvu = "INSERT INTO dichvu_benhnhan(maBenhNhan,maLichHen,maDichVu) 
+    VALUES ('$maBenhNhan', '$maLichHen', '$dichVuKham');";
+
+    $ketqua = mysqli_query($conn,$sql_dichvu);
+}
+
 // Xử lý cập nhật ngày khám
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     $ngayKham = $_POST['ngayKham'];
@@ -34,9 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     } else {
         echo "<p style='color: red;'>Cập nhật thất bại!</p>";
     }
-
-   
-    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -55,11 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
             <form method="POST">
                 <div class="mb-3">
                     <label class="form-label">Mã lịch hẹn</label>
-                    <input type="text" class="form-control" value="<?php echo htmlspecialchars($lichHen['maLichHen']); ?>" readonly>
+                    <input type="text" class="form-control" name="maLichHen" value="<?php echo htmlspecialchars($lichHen['maLichHen']); ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Mã bệnh nhân</label>
-                    <input type="text" class="form-control" value="<?php echo htmlspecialchars($lichHen['maBenhNhan']); ?>" readonly>
+                    <input type="text" class="form-control" name="maBenhNhan" value="<?php echo htmlspecialchars($lichHen['maBenhNhan']); ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tên bệnh nhân</label>
@@ -68,6 +76,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
                 <div class="mb-3">
                     <label class="form-label">Ngày khám</label>
                     <input type="date" name="ngayKham" class="form-control" value="<?php echo htmlspecialchars($lichHen['ngayKham']); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Dịch vụ khám</label>
+                    <select name="dichVuKham" id="dichVuKham">
+                    <option>Chọn dịch vụ khám</option>
+                    <?php 
+                        $sql_str = "select*from dichvu";
+                        $res = mysqli_query($conn,$sql_str);
+                        while($row = mysqli_fetch_assoc($res)){
+
+                        ?> 
+                            <option value="<?=$row['maDichVu']?>"><?=$row['tenDichVu']?></option>
+                            <?php }?>
+                        </select>
                 </div>
                 <button type="submit" name="update" class="btn btn-success">Cập nhật</button>
                 <a href="?quanli=quan-ly-lich-kham" class="btn btn-secondary">Quay lại</a>

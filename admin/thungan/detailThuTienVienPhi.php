@@ -14,7 +14,6 @@ if (isset($_POST['timKiemThanhToan'])) {
             WHERE lhk.maBenhNhan = '$keyword'";
     
     $result = mysqli_query($conn, $sql);
-
     // Kiểm tra nếu không tìm thấy kết quả
     if (mysqli_num_rows($result) == 0) {
         echo "<script>
@@ -26,6 +25,7 @@ if (isset($_POST['timKiemThanhToan'])) {
 
     // Lấy thông tin bệnh nhân
     $row = mysqli_fetch_assoc($result);
+    $_SESSION['maBenhNhan']= $row['maBenhNhan'];
 }
 ?>
 <div class="detailThanhToan">
